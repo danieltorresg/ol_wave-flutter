@@ -1,16 +1,52 @@
-# old_wave_flutter
+<p align="center">
+  <a href="https://flutter.io/">
+    <img src="https://diegolaballos.com/files/images/flutter-icon.jpg" alt="Logo" width=72 height=72>
+  </a>
 
-A new Flutter project.
+  <h3 align="center">Old Wave Flutter</h3>
 
-## Getting Started
+  <p align="center">
+    Old Wave in FLutter App
+  </p>
+</p>
 
-This project is a starting point for a Flutter application.
+## Table of contents
 
-A few resources to get you started if this is your first Flutter project:
+- [Quick start](#quick-start)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Quick start
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This is a normal flutter app. You should follow the instructions in the [official documentation](https://flutter.io/docs/get-started/install).
+
+## What's included
+
+* Search: search the product that you need!
+* Product Detail: detail of the specific product
+* Index: index screen
+* Cart: cart with products
+
+## Creators
+
+**Daniel Torres González**
+
+- <https://github.com/ismaestro>
+
+**Andrea Ortiz Giraldo**
+
+- <https://github.com/ismaestro>
+
+**Duván Arley Cano Arango**
+
+- <https://github.com/ismaestro>
+
+**John Sebastián Estarda Durango**
+
+- <https://github.com/ismaestro>
+
+**Juan David Raga Palomeque**
+
+- <https://github.com/ismaestro>
+
+
+
+## Thanks
