@@ -89,7 +89,7 @@ class _DetailsPageState extends State<DetailsPage> {
               Container(
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('assets/Mockup Mobile.png'),
+                    image: AssetImage('assets/Mockup_Mobile.png'),
                     scale: 1,
                   ),
                 ),
