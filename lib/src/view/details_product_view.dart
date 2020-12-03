@@ -22,68 +22,81 @@ class _DetailsPageState extends State<DetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Image.asset(
-          'assets/oldwave-logo-horizontal.png',
-          fit: BoxFit.cover,
-          scale: 2,
-        ),
+        appBar: AppBar(
+          // Here we take the value from the MyHomePage object that was created by
+          // the App.build method, and use it to set our appbar title.
+          title: Image.asset(
+            'assets/oldwave-logo-horizontal.png',
+            fit: BoxFit.cover,
+            scale: 2,
+          ),
 
-        backgroundColor: Colors.white,
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              icon: const Icon(Icons.menu),
+          backgroundColor: Colors.white,
+          leading: Builder(
+            builder: (BuildContext context) {
+              return IconButton(
+                icon: const Icon(Icons.menu),
+                color: purpleMainColor,
+                onPressed: () {},
+              );
+            },
+          ),
+          actions: <Widget>[
+            IconButton(
+              icon: Image.asset('assets/user_icon.png'),
               color: purpleMainColor,
-              onPressed: () {},
-            );
-          },
+              onPressed: () {
+                print('Click search');
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.shopping_cart),
+              color: blueComplementaryColor,
+              onPressed: () {
+                print('Click start');
+              },
+            ),
+          ],
         ),
-        actions: <Widget>[
-          IconButton(
-            icon: Image.asset('assets/user_icon.png'),
-            color: purpleMainColor,
-            onPressed: () {
-              print('Click search');
-            },
-          ),
-          IconButton(
-            icon: Icon(Icons.shopping_cart),
-            color: blueComplementaryColor,
-            onPressed: () {
-              print('Click start');
-            },
-          ),
-        ],
-      ),
-      body: Center(
-          child: Column(
-        children: <Widget>[
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            decoration: BoxDecoration(
-              color: Color(0xFFE0E0E0),
-              borderRadius: BorderRadius.all(Radius.circular(30)),
-            ),
-            child: TextField(
-              cursorColor: Colors.grey,
-              style: TextStyle(fontSize: 16.0, color: Colors.black),
-              decoration: InputDecoration(
-                  prefixIcon: Icon(
-                    Icons.search,
-                    color: Colors.grey,
-                    size: 16,
+        body: Center(
+          child: Stack(
+            children: <Widget>[
+              Container(
+                child: Container(
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(30)),
                   ),
-                  border: InputBorder.none,
-                  hintText: "Search Products",
-                  hintStyle: TextStyle(color: Colors.grey, fontSize: 14.0)),
-            ),
+                  child: TextField(
+                    cursorColor: Colors.grey,
+                    style: TextStyle(fontSize: 16.0, color: Colors.black),
+                    decoration: InputDecoration(
+                        prefixIcon: Icon(
+                          Icons.search,
+                          color: purpleMainColor,
+                          size: 25,
+                        ),
+                        border: InputBorder.none,
+                        hintText: "Search Products",
+                        hintStyle:
+                            TextStyle(color: Colors.black26, fontSize: 14.0)),
+                  ),
+                ),
+                decoration: BoxDecoration(color: purpleMainColor),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/Mockup_Mobile.png'),
+                    scale: 1,
+                  ),
+                ),
+              ),
+            ],
+            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           ),
-        ],
-        mainAxisAlignment: MainAxisAlignment.start,
-      )),
-    );
+        ));
   }
 }
