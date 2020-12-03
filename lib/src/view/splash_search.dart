@@ -47,18 +47,31 @@ class Search extends StatefulWidget {
 
 class _SearchState extends State<Search> {
   var cryptoData = CryptoData.getData;
+  var valueAux = {
+    'name': 'Duvan',
+    'symbol': 'DCA',
+    'icon': Icons.backup,
+    'iconColor': Colors.green,
+    'change': '+1.2%',
+    'changeValue': '20.567',
+    'changeColor': Colors.pink,
+    'value': '\$7.80900'
+  };
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBarApp(
+          appBar: AppBar(),
+        ),
         body: Container(
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
+              SearchBar(),
               Expanded(
                 child: ListView.builder(
-// scrollDirection: Axis.horizontal,
                     itemCount: cryptoData.length,
                     itemBuilder: (context, index) {
                       return Container(
@@ -127,6 +140,10 @@ class _SearchState extends State<Search> {
                       );
                     }),
               ),
+              FlatButton(
+                onPressed: () => setState(() => {cryptoData.add(valueAux)}),
+                child: Text('Cargar más'),
+              ),
             ],
           ),
         ),
@@ -138,12 +155,12 @@ class _SearchState extends State<Search> {
     return Padding(
       padding: const EdgeInsets.only(left: 15.0),
       child: Align(
-          alignment: Alignment.centerLeft,
-          child: Icon(
-            data['icon'],
-            color: data['iconColor'],
-            size: 40,
-          )),
+        alignment: Alignment.centerLeft,
+        child: Image.asset(
+            'assets/user_icon.png',
+            fit: BoxFit.fill,
+          ),
+      ),
     );
   }
 
