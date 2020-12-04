@@ -30,7 +30,7 @@ class _InitialPageState extends State<InitialPage> {
                   '¿Que deseas comprar hoy?',
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(fontWeight: FontWeight.w500),
                 ),
                 Card(
                   shape: RoundedRectangleBorder(
@@ -76,10 +76,12 @@ class _InitialPageState extends State<InitialPage> {
                         children: <Widget>[
                           RaisedButton(
                             child: const Text('Android'),
+                            color: purpleMainColor,
                             onPressed: () {/* ... */},
                           ),
                           RaisedButton(
                             child: const Text('IOS'),
+                            color: purpleMainColor,
                             onPressed: () {/* ... */},
                           ),
                         ],
@@ -105,10 +107,12 @@ class _InitialPageState extends State<InitialPage> {
                         children: <Widget>[
                           RaisedButton(
                             child: const Text('Neveras'),
+                            color: purpleMainColor,
                             onPressed: () {/* ... */},
                           ),
                           RaisedButton(
                             child: const Text('Lavadoras'),
+                            color: purpleMainColor,
                             onPressed: () {/* ... */},
                           ),
                         ],
@@ -134,6 +138,7 @@ class _InitialPageState extends State<InitialPage> {
                         children: <Widget>[
                           RaisedButton(
                             child: const Text('Mouse'),
+                            color: purpleMainColor,
                             onPressed: () {/* ... */},
                           ),
                           RaisedButton(
@@ -163,6 +168,7 @@ class _InitialPageState extends State<InitialPage> {
                         children: <Widget>[
                           RaisedButton(
                             child: const Text('Relojes'),
+                            color: purpleMainColor,
                             onPressed: () {/* ... */},
                           ),
                         ],
