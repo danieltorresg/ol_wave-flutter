@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:old_wave_flutter/src/view/splash_appbar.dart';
-import 'package:old_wave_flutter/src/view/splash_searchBar.dart';
+import 'package:old_wave_flutter/src/view/appbar.dart';
+import 'package:old_wave_flutter/src/view/searchBar.dart';
 import 'package:old_wave_flutter/src/constants/constants.dart';
 
 class InitialPage extends StatefulWidget {
