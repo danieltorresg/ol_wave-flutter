@@ -107,7 +107,7 @@ class _InitialPageState extends State<InitialPage> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        leading: Icon(Icons.phone, size: 60),
+                        leading: Icon(Icons.phone_android, size: 60),
                         title: Text('Celulares',
                             style: TextStyle(
                               fontSize: 30.0,
@@ -155,7 +155,7 @@ class _InitialPageState extends State<InitialPage> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        leading: Icon(Icons.computer, size: 60),
+                        leading: Icon(Icons.tv, size: 60),
                         title: Text('Electrodomesticos',
                             style: TextStyle(
                               fontSize: 30.0,
@@ -203,7 +203,7 @@ class _InitialPageState extends State<InitialPage> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        leading: Icon(Icons.computer, size: 60),
+                        leading: Icon(Icons.headset, size: 60),
                         title: Text('Accesorios',
                             style: TextStyle(
                               fontSize: 30.0,
@@ -238,7 +238,7 @@ class _InitialPageState extends State<InitialPage> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       const ListTile(
-                        leading: Icon(Icons.computer, size: 60),
+                        leading: Icon(Icons.motorcycle, size: 60),
                         title: Text('Vehiculos',
                             style: TextStyle(
                               fontSize: 30.0,
