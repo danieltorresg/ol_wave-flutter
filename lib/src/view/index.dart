@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:old_wave_flutter/src/view/appbar.dart';
+import 'package:old_wave_flutter/src/view/search.dart';
 import 'package:old_wave_flutter/src/view/searchBar.dart';
 import 'package:old_wave_flutter/src/constants/constants.dart';
 
@@ -59,7 +60,14 @@ class _InitialPageState extends State<InitialPage> {
                           RaisedButton(
                             child: const Text('Computadores'),
                             color: purpleMainColor,
-                            onPressed: () {/* ... */},
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      Search(search: 'computador'),
+                                ),
+                              );
+                            },
                           ),
                           RaisedButton(
                             child: const Text('Mouse'),
