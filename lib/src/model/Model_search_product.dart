@@ -1,118 +1,131 @@
 import 'dart:convert';
 
-SearchProduct searchProductFromJson(String str) =>
-    SearchProduct.fromJson(json.decode(str));
+SearchModel searchModelFromJson(String str) => SearchModel.fromJson(json.decode(str));
 
-String searchProductToJson(SearchProduct data) => json.encode(data.toJson());
+String searchModelToJson(SearchModel data) => json.encode(data.toJson());
 
-class SearchProduct {
-  SearchProduct({
-    this.query,
-    this.total,
-    this.seller,
-    this.items,
-  });
 
-  String query;
-  int total;
-  Seller seller;
-  List<Item> items;
+class Products{
 
-  factory SearchProduct.fromJson(Map<String, dynamic> json) => SearchProduct(
-        query: json["query"],
-        total: json["total"],
-        seller: Seller.fromJson(json["seller"]),
-        items: List<Item>.from(json["items"].map((x) => Item.fromJson(x))),
-      );
+  //This is the list with all product of the search
+  List<SearchModel> itemsProduct = new List();
 
-  Map<String, dynamic> toJson() => {
-        "query": query,
-        "total": total,
-        "seller": seller.toJson(),
-        "items": List<dynamic>.from(items.map((x) => x.toJson())),
-      };
+  Products();
+
+  Products.fromJsonList( List<dynamic> jsonList){
+
+    if(jsonList == null) return;//If json it's null them return
+
+    //I take the crow json of product and convert to DartObject before add to itemsproduct
+    for(var item in jsonList){
+
+      //map de json to dart object
+      final product = SearchModel.fromJson(item);
+
+      //add product to list itemsproduct
+      itemsProduct.add(product);
+    }
+
+  }
+
 }
 
-class Item {
-  Item({
-    this.id,
-    this.name,
-    this.brand,
-    this.thubnail,
-    this.city,
-    this.price,
-    this.currency,
-    this.rating,
-  });
+class SearchModel {
+    SearchModel({
+        this.id,
+        this.name,
+        this.brand,
+        this.thumbnail,
+        this.pictures,
+        this.city,
+        this.seller,
+        this.description,
+        this.price,
+        this.currency,
+        this.rating,
+    });
 
-  int id;
-  String name;
-  String brand;
-  String thubnail;
-  City city;
-  int price;
-  String currency;
-  int rating;
+    String id;
+    String name;
+    String brand;
+    String thumbnail;
+    List<String> pictures;
+    City city;
+    Seller seller;
+    String description;
+    int price;
+    String currency;
+    int rating;
 
-  factory Item.fromJson(Map<String, dynamic> json) => Item(
+    factory SearchModel.fromJson(Map<String, dynamic> json) => SearchModel(
         id: json["id"],
         name: json["name"],
         brand: json["brand"],
-        thubnail: json["thubnail"],
+        thumbnail: json["thumbnail"],
+        pictures: List<String>.from(json["pictures"].map((x) => x)),
         city: City.fromJson(json["city"]),
+        seller: Seller.fromJson(json["seller"]),
+        description: json["description"],
         price: json["price"],
         currency: json["currency"],
         rating: json["rating"],
-      );
+    );
 
-  Map<String, dynamic> toJson() => {
+    Map<String, dynamic> toJson() => {
         "id": id,
         "name": name,
         "brand": brand,
-        "thubnail": thubnail,
+        "thumbnail": thumbnail,
+        "pictures": List<dynamic>.from(pictures.map((x) => x)),
         "city": city.toJson(),
+        "seller": seller.toJson(),
+        "description": description,
         "price": price,
         "currency": currency,
         "rating": rating,
-      };
+    };
 }
 
 class City {
-  City({
-    this.name,
-    this.code,
-  });
+    City({
+        this.name,
+        this.code,
+    });
 
-  String name;
-  String code;
+    String name;
+    String code;
 
-  factory City.fromJson(Map<String, dynamic> json) => City(
+    factory City.fromJson(Map<String, dynamic> json) => City(
         name: json["name"],
         code: json["code"],
-      );
+    );
 
-  Map<String, dynamic> toJson() => {
+    Map<String, dynamic> toJson() => {
         "name": name,
         "code": code,
-      };
+    };
 }
 
 class Seller {
-  Seller({
-    this.id,
-    this.name,
-  });
+    Seller({
+        this.id,
+        this.name,
+        this.logo,
+    });
 
-  String id;
-  String name;
+    String id;
+    String name;
+    String logo;
 
-  factory Seller.fromJson(Map<String, dynamic> json) => Seller(
+    factory Seller.fromJson(Map<String, dynamic> json) => Seller(
         id: json["id"],
         name: json["name"],
-      );
+        logo: json["logo"],
+    );
 
-  Map<String, dynamic> toJson() => {
+    Map<String, dynamic> toJson() => {
         "id": id,
         "name": name,
-      };
+        "logo": logo,
+    };
 }

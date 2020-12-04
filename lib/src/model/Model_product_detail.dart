@@ -5,6 +5,8 @@ ProductDetail productDetailFromJson(String str) =>
 
 String productDetailToJson(ProductDetail data) => json.encode(data.toJson());
 
+
+
 class ProductDetail {
   ProductDetail({
     this.id,
@@ -33,31 +35,31 @@ class ProductDetail {
   int rating;
 
   factory ProductDetail.fromJson(Map<String, dynamic> json) => ProductDetail(
-        id: json["id"],
-        name: json["name"],
-        brand: json["brand"],
-        thubnail: json["thubnail"],
-        pictures: List<String>.from(json["pictures"].map((x) => x)),
-        city: City.fromJson(json["city"]),
-        seller: Seller.fromJson(json["seller"]),
-        description: json["description"],
-        price: json["price"],
-        currency: json["currency"],
-        rating: json["rating"],
+        id          : json["id"],
+        name        : json["name"],
+        brand       : json["brand"],
+        thubnail    : json["thubnail"],
+        pictures    : List<String>.from(json["pictures"].map((x) => x)),
+        city        : City.fromJson(json["city"]),
+        seller      : Seller.fromJson(json["seller"]),
+        description : json["description"],
+        price       : json["price"],
+        currency    : json["currency"],
+        rating      : json["rating"],
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "brand": brand,
-        "thubnail": thubnail,
-        "pictures": List<dynamic>.from(pictures.map((x) => x)),
-        "city": city.toJson(),
-        "seller": seller.toJson(),
-        "description": description,
-        "price": price,
-        "currency": currency,
-        "rating": rating,
+        "id"          : id,
+        "name"        : name,
+        "brand"       : brand,
+        "thubnail"    : thubnail,
+        "pictures"    : List<dynamic>.from(pictures.map((x) => x)),
+        "city"        : city.toJson(),
+        "seller"      : seller.toJson(),
+        "description" : description,
+        "price"       : price,
+        "currency"    : currency,
+        "rating"      : rating,
       };
 }
 
