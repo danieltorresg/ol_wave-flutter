@@ -13,7 +13,6 @@ class InitialPage extends StatefulWidget {
 }
 
 class _InitialPageState extends State<InitialPage> {
-  //var dataQuemada = DataQuemada.getData;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -29,8 +28,12 @@ class _InitialPageState extends State<InitialPage> {
                 Text(
                   '¿Que deseas comprar hoy?',
                   textAlign: TextAlign.center,
+                  textScaleFactor: 1.5,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(fontWeight: FontWeight.w500),
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: purpleMainColor,
+                  ),
                 ),
                 Card(
                   shape: RoundedRectangleBorder(
@@ -43,13 +46,28 @@ class _InitialPageState extends State<InitialPage> {
                     children: <Widget>[
                       const ListTile(
                         leading: Icon(Icons.computer, size: 60),
-                        title: Text('Computación',
-                            style: TextStyle(fontSize: 30.0)),
+                        title: Text(
+                          'Computación',
+                          style: TextStyle(
+                            fontSize: 30.0,
+                            color: purpleMainColor,
+                          ),
+                        ),
                       ),
                       ButtonBar(
                         children: <Widget>[
                           RaisedButton(
-                            child: const Text('Ver'),
+                            child: const Text('Computadores'),
+                            color: purpleMainColor,
+                            onPressed: () {/* ... */},
+                          ),
+                          RaisedButton(
+                            child: const Text('Mouse'),
+                            color: purpleMainColor,
+                            onPressed: () {/* ... */},
+                          ),
+                          RaisedButton(
+                            child: const Text('Teclados'),
                             color: purpleMainColor,
                             onPressed: () {/* ... */},
                           ),
@@ -69,8 +87,11 @@ class _InitialPageState extends State<InitialPage> {
                     children: <Widget>[
                       const ListTile(
                         leading: Icon(Icons.phone, size: 60),
-                        title:
-                            Text('Celulares', style: TextStyle(fontSize: 30.0)),
+                        title: Text('Celulares',
+                            style: TextStyle(
+                              fontSize: 30.0,
+                              color: purpleMainColor,
+                            )),
                       ),
                       ButtonBar(
                         children: <Widget>[
@@ -101,7 +122,10 @@ class _InitialPageState extends State<InitialPage> {
                       const ListTile(
                         leading: Icon(Icons.computer, size: 60),
                         title: Text('Electrodomesticos',
-                            style: TextStyle(fontSize: 30.0)),
+                            style: TextStyle(
+                              fontSize: 30.0,
+                              color: purpleMainColor,
+                            )),
                       ),
                       ButtonBar(
                         children: <Widget>[
@@ -131,38 +155,11 @@ class _InitialPageState extends State<InitialPage> {
                     children: <Widget>[
                       const ListTile(
                         leading: Icon(Icons.computer, size: 60),
-                        title: Text('Perifericos',
-                            style: TextStyle(fontSize: 30.0)),
-                      ),
-                      ButtonBar(
-                        children: <Widget>[
-                          RaisedButton(
-                            child: const Text('Mouse'),
-                            color: purpleMainColor,
-                            onPressed: () {/* ... */},
-                          ),
-                          RaisedButton(
-                            child: const Text('Teclados'),
-                            onPressed: () {/* ... */},
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                  ),
-                  color: Colors.white,
-                  elevation: 10,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      const ListTile(
-                        leading: Icon(Icons.computer, size: 60),
                         title: Text('Accesorios',
-                            style: TextStyle(fontSize: 30.0)),
+                            style: TextStyle(
+                              fontSize: 30.0,
+                              color: purpleMainColor,
+                            )),
                       ),
                       ButtonBar(
                         children: <Widget>[
