@@ -4,38 +4,128 @@ import 'package:old_wave_flutter/src/view/splash_appbar.dart';
 import 'package:old_wave_flutter/src/view/splash_searchBar.dart';
 
 class CryptoData {
-  static final getData = [
-    {
-      'name': 'Bitcoin',
-      'symbol': 'BTC',
-      'icon': Icons.account_box,
-      'iconColor': Colors.orange,
-      'change': '+3.67%',
-      'changeValue': '+202.835',
-      'changeColor': Colors.green,
-      'value': '\$12.279',
+  static final retorno = {
+    "query": "computador",
+    "total": 10,
+    "seller": {
+      "id": 5,
+      "name": "django_api",
+      "logo": "https://www.django-rest-framework.org/img/logo.png"
     },
-    {
-      'name': 'Ethereum',
-      'symbol': 'ETH',
-      'icon': Icons.account_circle,
-      'iconColor': Colors.black,
-      'change': '+5.2%',
-      'changeValue': '25.567',
-      'changeColor': Colors.green,
-      'value': '\$7.809'
-    },
-    {
-      'name': 'Andrea',
-      'symbol': 'AOG',
-      'icon': Icons.android,
-      'iconColor': Colors.blueAccent,
-      'change': '+1.2%',
-      'changeValue': '20.567',
-      'changeColor': Colors.brown,
-      'value': '\$7.80900'
-    },
-  ];
+    "items": [
+      {
+        "id": "5fc8fdcac8f3616c3fdb3908",
+        "name": "computador",
+        "brand": "Adata XPG",
+        "thumbnail":
+            "http://mco-s1-p.mlstatic.com/918211-MCO42704536631_072020-I.jpg",
+        "city": {"name": "Medellín", "code": "MED"},
+        "price": 2649900.0,
+        "currency": "COP",
+        "rating": 0.0
+      },
+      {
+        "id": "5fc8fdcac8f3616c3fdb3909",
+        "name": "computador",
+        "brand": "Acer",
+        "thumbnail":
+            "http://mco-s2-p.mlstatic.com/830497-MCO43559197713_092020-I.jpg",
+        "city": {"name": "Cali", "code": "CL"},
+        "price": 1779000.0,
+        "currency": "COP",
+        "rating": 5.0
+      },
+      {
+        "id": "5fc8fdcac8f3616c3fdb390a",
+        "name": "computador",
+        "brand": "Lenovo",
+        "thumbnail":
+            "http://mco-s2-p.mlstatic.com/690248-MCO42347578960_062020-I.jpg",
+        "city": {"name": "Bogotá", "code": "BOG"},
+        "price": 3299000.0,
+        "currency": "COP",
+        "rating": 4.0
+      },
+      {
+        "id": "5fc8fdcac8f3616c3fdb390b",
+        "name": "computador",
+        "brand": "Asus",
+        "thumbnail":
+            "http://mco-s2-p.mlstatic.com/807565-MCO43129304238_082020-I.jpg",
+        "city": {"name": "Bogotá", "code": "BOG"},
+        "price": 1500000.0,
+        "currency": "COP",
+        "rating": 2.0
+      },
+      {
+        "id": "5fc8fdcac8f3616c3fdb390c",
+        "name": "computador",
+        "brand": "XPG",
+        "thumbnail":
+            "http://mco-s2-p.mlstatic.com/976870-MCO44033540850_112020-I.jpg",
+        "city": {"name": "Bogotá", "code": "BOG"},
+        "price": 2649000.0,
+        "currency": "COP",
+        "rating": 1.0
+      },
+      {
+        "id": "5fc8fdcac8f3616c3fdb390d",
+        "name": "computador",
+        "brand": "Compumax",
+        "thumbnail":
+            "http://mco-s1-p.mlstatic.com/824118-MCO43504732352_092020-I.jpg",
+        "city": {"name": "Medellín", "code": "MED"},
+        "price": 1749900.0,
+        "currency": "COP",
+        "rating": 1.0
+      },
+      {
+        "id": "5fc8fdcac8f3616c3fdb390e",
+        "name": "computador",
+        "brand": "Dell",
+        "thumbnail":
+            "http://mco-s1-p.mlstatic.com/666899-MCO44044201095_112020-I.jpg",
+        "city": {"name": "Bogotá", "code": "BOG"},
+        "price": 1991900.0,
+        "currency": "COP",
+        "rating": 4.0
+      },
+      {
+        "id": "5fc8fdcac8f3616c3fdb390f",
+        "name": "computador",
+        "brand": "core i5",
+        "thumbnail":
+            "http://mco-s1-p.mlstatic.com/926713-MCO44133268996_112020-I.jpg",
+        "city": {"name": "Cali", "code": "CL"},
+        "price": 2699900.0,
+        "currency": "COP",
+        "rating": 5.0
+      },
+      {
+        "id": "5fc8fdcac8f3616c3fdb3910",
+        "name": "computador",
+        "brand": "Lenovo",
+        "thumbnail":
+            "http://mco-s1-p.mlstatic.com/791659-MCO41799731157_052020-I.jpg",
+        "city": {"name": "Bogotá", "code": "BOG"},
+        "price": 3499900.0,
+        "currency": "COP",
+        "rating": 2.0
+      },
+      {
+        "id": "5fc8fdcac8f3616c3fdb3911",
+        "name": "computador",
+        "brand": "HP",
+        "thumbnail":
+            "http://mco-s2-p.mlstatic.com/690899-MCO43691779911_102020-I.jpg",
+        "city": {"name": "Medellín", "code": "MED"},
+        "price": 1600000.0,
+        "currency": "COP",
+        "rating": 1.0
+      }
+    ]
+  };
+
 }
 
 class Search extends StatefulWidget {
@@ -46,17 +136,7 @@ class Search extends StatefulWidget {
 }
 
 class _SearchState extends State<Search> {
-  var cryptoData = CryptoData.getData;
-  var valueAux = {
-    'name': 'Duvan',
-    'symbol': 'DCA',
-    'icon': Icons.backup,
-    'iconColor': Colors.green,
-    'change': '+1.2%',
-    'changeValue': '20.567',
-    'changeColor': Colors.pink,
-    'value': '\$7.80900'
-  };
+  var datosCompletos = CryptoData.retorno["items"] as List;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -72,23 +152,18 @@ class _SearchState extends State<Search> {
               SearchBar(),
               Expanded(
                 child: ListView.builder(
-                    itemCount: cryptoData.length,
+                    itemCount: datosCompletos.length,
                     itemBuilder: (context, index) {
                       return Container(
                         padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-                        height: 220,
+                        height: 200,
                         width: double.maxFinite,
                         child: Card(
                           elevation: 5,
                           child: Container(
                             decoration: BoxDecoration(
-                              border: Border(
-                                top: BorderSide(
-                                    width: 2.0,
-                                    color: cryptoData[index]['iconColor']),
-                              ),
-                              color: Colors.white,
-                            ),
+                                //color: Colors.white,
+                                ),
                             child: Padding(
                               padding: EdgeInsets.all(7),
                               child: Stack(children: <Widget>[
@@ -100,34 +175,38 @@ class _SearchState extends State<Search> {
                                           padding: const EdgeInsets.only(
                                               left: 10, top: 5),
                                           child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
                                             children: <Widget>[
                                               Row(
                                                 children: <Widget>[
-                                                  productIcon(
-                                                      cryptoData[index]),
+                                                  productImage(
+                                                      datosCompletos[index]),
                                                   SizedBox(
                                                     height: 10,
                                                   ),
                                                   productNameSymbol(
-                                                      cryptoData[index]),
+                                                      datosCompletos[index]),
                                                   Spacer(),
+                                                ],
+                                              ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: <Widget>[
                                                   productChange(
-                                                      cryptoData[index]),
+                                                      datosCompletos[index]),
                                                   SizedBox(
                                                     width: 10,
                                                   ),
-                                                  changeIcon(cryptoData[index]),
+                                                  changeIcon(
+                                                      datosCompletos[index]),
                                                   SizedBox(
                                                     width: 20,
                                                   )
                                                 ],
                                               ),
-                                              Row(
-                                                children: <Widget>[
-                                                  productAmount(
-                                                      cryptoData[index])
-                                                ],
-                                              )
                                             ],
                                           ))
                                     ],
@@ -141,7 +220,8 @@ class _SearchState extends State<Search> {
                     }),
               ),
               FlatButton(
-                onPressed: () => setState(() => {cryptoData.add(valueAux)}),
+                onPressed: () => setState(
+                    () => {print("Cargandos")}),
                 child: Text('Cargar más'),
               ),
             ],
@@ -151,22 +231,22 @@ class _SearchState extends State<Search> {
     );
   }
 
-  Widget productIcon(data) {
+  Widget productImage(data) {
     return Padding(
       padding: const EdgeInsets.only(left: 15.0),
       child: Align(
         alignment: Alignment.centerLeft,
-        child: Image.asset(
-            'assets/user_icon.png',
-            fit: BoxFit.fill,
-          ),
+        child: Image.network(
+          '${data['thumbnail']}',
+          fit: BoxFit.fill,
+        ),
       ),
     );
   }
 
   Widget productNameSymbol(data) {
     return Align(
-      alignment: Alignment.centerLeft,
+      alignment: Alignment.centerRight,
       child: RichText(
         text: TextSpan(
           text: '${data['name']}',
@@ -174,7 +254,7 @@ class _SearchState extends State<Search> {
               fontWeight: FontWeight.bold, color: Colors.black, fontSize: 20),
           children: <TextSpan>[
             TextSpan(
-                text: '\n${data['symbol']}',
+                text: '${data['brand']}',
                 style: TextStyle(
                     color: Colors.grey,
                     fontSize: 15,
@@ -190,12 +270,12 @@ class _SearchState extends State<Search> {
       alignment: Alignment.topRight,
       child: RichText(
         text: TextSpan(
-          text: '${data['change']}',
+          text: '${data['price']}',
           style: TextStyle(
               fontWeight: FontWeight.bold, color: Colors.green, fontSize: 20),
           children: <TextSpan>[
             TextSpan(
-                text: '\n${data['changeValue']}',
+                text: '\n${data['currency']}',
                 style: TextStyle(
                     color: data['changeColor'],
                     fontSize: 15,
@@ -208,152 +288,22 @@ class _SearchState extends State<Search> {
 
   Widget changeIcon(data) {
     return Align(
-        alignment: Alignment.topRight,
-        child: data['change'].contains('-')
-            ? Icon(
-                Icons.arrow_drop_down,
-                color: data['changeColor'],
-                size: 30,
-              )
-            : Icon(
-                Icons.arrow_drop_up,
-                color: data['changeColor'],
-                size: 30,
-              ));
-  }
-
-  Widget productAmount(data) {
-    return Align(
-      alignment: Alignment.centerLeft,
-      child: Padding(
-        padding: const EdgeInsets.only(left: 20.0),
-        child: Row(
-          children: <Widget>[
-            RichText(
-              textAlign: TextAlign.left,
-              text: TextSpan(
-                text: '\n${data['value']}',
+      alignment: Alignment.topRight,
+      child: RichText(
+        text: TextSpan(
+          text: 'Raiting',
+          style: TextStyle(
+              fontWeight: FontWeight.bold, color: Colors.black, fontSize: 15),
+          children: <TextSpan>[
+            TextSpan(
+                text: '\n${data['rating']}',
                 style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 35,
-                ),
-                children: <TextSpan>[
-                  TextSpan(
-                      text: '\n0.1349',
-                      style: TextStyle(
-                          color: Colors.grey,
-                          fontStyle: FontStyle.italic,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold)),
-                ],
-              ),
-            ),
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.green)),
           ],
         ),
       ),
     );
   }
 }
-
-/* class Search extends StatelessWidget {
-  var cryptoData = CryptoData.getData;
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-        home: Scaffold(
-            body: Container(
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          Expanded(
-            child: ListView.builder(
-// scrollDirection: Axis.horizontal,
-                itemCount: cryptoData.length,
-                itemBuilder: (context, index) {
-                  return Container(
-                    padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-                    height: 220,
-                    width: double.maxFinite,
-                    child: Card(
-                      elevation: 5,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          border: Border(
-                            top: BorderSide(
-                                width: 2.0,
-                                color: cryptoData[index]['iconColor']),
-                          ),
-                          color: Colors.white,
-                        ),
-                        child: Padding(
-                          padding: EdgeInsets.all(7),
-                          child: Stack(children: <Widget>[
-                            Align(
-                              alignment: Alignment.centerRight,
-                              child: Stack(
-                                children: <Widget>[
-                                  Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 10, top: 5),
-                                      child: Column(
-                                        children: <Widget>[
-                                          Row(
-                                            children: <Widget>[
-                                              productIcon(cryptoData[index]),
-                                              SizedBox(
-                                                height: 10,
-                                              ),
-                                              productNameSymbol(
-                                                  cryptoData[index]),
-                                              Spacer(),
-                                              productChange(cryptoData[index]),
-                                              SizedBox(
-                                                width: 10,
-                                              ),
-                                              changeIcon(cryptoData[index]),
-                                              SizedBox(
-                                                width: 20,
-                                              )
-                                            ],
-                                          ),
-                                          Row(
-                                            children: <Widget>[
-                                              productAmount(cryptoData[index])
-                                            ],
-                                          )
-                                        ],
-                                      ))
-                                ],
-                              ),
-                            )
-                          ]),
-                        ),
-                      ),
-                    ),
-                  );
-                }),
-          ),
-        ],
-      ),
-    )));
-  }
-} */
-
-/* 
-
-class Search extends StatefulWidget {
-  Search({Key key}) : super(key: key);
-
-  @override
-  _SearchState createState() => _SearchState();
-}
-
-class _SearchState extends State<Search> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-       child: Text('Hola'),
-    );
-  }
-} */
