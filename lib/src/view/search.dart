@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:old_wave_flutter/src/view/splash_appbar.dart';
-import 'package:old_wave_flutter/src/view/splash_searchBar.dart';
+import 'package:old_wave_flutter/src/constants/constants.dart';
+import 'package:old_wave_flutter/src/view/appbar.dart';
+import 'package:old_wave_flutter/src/view/searchBar.dart';
+import 'package:old_wave_flutter/src/view/details_product_view.dart';
 
 class CryptoData {
   static final retorno = {
@@ -125,18 +127,27 @@ class CryptoData {
       }
     ]
   };
-
 }
 
 class Search extends StatefulWidget {
-  Search({Key key}) : super(key: key);
+  Search({Key key, this.search}) : super(key: key);
+  final String search;
 
   @override
   _SearchState createState() => _SearchState();
 }
 
 class _SearchState extends State<Search> {
-  var datosCompletos = CryptoData.retorno["items"] as List;
+  TextEditingController _controller;
+  var _datosCompletos = CryptoData.retorno["items"] as List;
+
+  @override
+  void initState() {
+    _controller = TextEditingController(text: this.widget.search);
+    print(_controller.text);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -152,7 +163,7 @@ class _SearchState extends State<Search> {
               SearchBar(),
               Expanded(
                 child: ListView.builder(
-                    itemCount: datosCompletos.length,
+                    itemCount: _datosCompletos.length,
                     itemBuilder: (context, index) {
                       return Container(
                         padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
@@ -160,59 +171,71 @@ class _SearchState extends State<Search> {
                         width: double.maxFinite,
                         child: Card(
                           elevation: 5,
-                          child: Container(
-                            decoration: BoxDecoration(
-                                //color: Colors.white,
+                          child: InkWell(
+                            onTap: () => {
+                              print("Abriendo producto" +
+                                  _datosCompletos[index]['id']),
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => DetailsPage(
+                                  id: _datosCompletos[index]['id'],
                                 ),
-                            child: Padding(
-                              padding: EdgeInsets.all(7),
-                              child: Stack(children: <Widget>[
-                                Align(
-                                  alignment: Alignment.centerRight,
-                                  child: Stack(
-                                    children: <Widget>[
-                                      Padding(
-                                          padding: const EdgeInsets.only(
-                                              left: 10, top: 5),
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: <Widget>[
-                                              Row(
-                                                children: <Widget>[
-                                                  productImage(
-                                                      datosCompletos[index]),
-                                                  SizedBox(
-                                                    height: 10,
-                                                  ),
-                                                  productNameSymbol(
-                                                      datosCompletos[index]),
-                                                  Spacer(),
-                                                ],
-                                              ),
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: <Widget>[
-                                                  productChange(
-                                                      datosCompletos[index]),
-                                                  SizedBox(
-                                                    width: 10,
-                                                  ),
-                                                  changeIcon(
-                                                      datosCompletos[index]),
-                                                  SizedBox(
-                                                    width: 20,
-                                                  )
-                                                ],
-                                              ),
-                                            ],
-                                          ))
-                                    ],
-                                  ),
-                                )
-                              ]),
+                              ))
+                            },
+                            child: Container(
+                              /* decoration: BoxDecoration(
+                                  color: Colors.white, //fondo
+                                  ), */
+                              child: Padding(
+                                padding: EdgeInsets.all(7),
+                                child: Stack(children: <Widget>[
+                                  Align(
+                                    alignment: Alignment.centerRight,
+                                    child: Stack(
+                                      children: <Widget>[
+                                        Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 10, top: 5),
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: <Widget>[
+                                                Row(
+                                                  children: <Widget>[
+                                                    productImage(
+                                                        _datosCompletos[index]),
+                                                    SizedBox(
+                                                      height: 10,
+                                                    ),
+                                                    productNameSymbol(
+                                                        _datosCompletos[index]),
+                                                    Spacer(),
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: <Widget>[
+                                                    productChange(
+                                                        _datosCompletos[index]),
+                                                    SizedBox(
+                                                      width: 10,
+                                                    ),
+                                                    changeIcon(
+                                                        _datosCompletos[index]),
+                                                    SizedBox(
+                                                      width: 20,
+                                                    )
+                                                  ],
+                                                ),
+                                              ],
+                                            ))
+                                      ],
+                                    ),
+                                  )
+                                ]),
+                              ),
                             ),
                           ),
                         ),
@@ -220,8 +243,7 @@ class _SearchState extends State<Search> {
                     }),
               ),
               FlatButton(
-                onPressed: () => setState(
-                    () => {print("Cargandos")}),
+                onPressed: () => setState(() => {print("Cargandos")}),
                 child: Text('Cargar más'),
               ),
             ],
@@ -272,7 +294,7 @@ class _SearchState extends State<Search> {
         text: TextSpan(
           text: '${data['price']}',
           style: TextStyle(
-              fontWeight: FontWeight.bold, color: Colors.green, fontSize: 20),
+              fontWeight: FontWeight.bold, color: purpleMainColor, fontSize: 20),
           children: <TextSpan>[
             TextSpan(
                 text: '\n${data['currency']}',

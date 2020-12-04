@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:old_wave_flutter/src/constants/constants.dart';
+import 'package:old_wave_flutter/src/view/index.dart';
 
 class AppBarApp extends StatelessWidget implements PreferredSizeWidget {
   final AppBar appBar;
@@ -9,11 +10,16 @@ class AppBarApp extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Image.asset(
-        'assets/oldwave-logo-horizontal.png',
-        fit: BoxFit.cover,
-        scale: 2,
-      ),
+      title: InkWell(
+          child: Image.asset(
+            'assets/oldwave-logo-horizontal.png',
+            fit: BoxFit.cover,
+            scale: 2,
+          ),
+          onTap: () => {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => InitialPage()))
+              }),
       backgroundColor: Colors.white,
       leading: Builder(
         builder: (BuildContext context) {
