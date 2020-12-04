@@ -8,7 +8,7 @@ String searchModelToJson(SearchModel data) => json.encode(data.toJson());
 class Products{
 
   //This is the list with all product of the search
-  List<SearchModel> itemsProduct = new List();
+  List<Item> itemsProduct = new List();
 
   Products();
 
@@ -20,7 +20,7 @@ class Products{
     for(var item in jsonList){
 
       //map de json to dart object
-      final product = SearchModel.fromJson(item);
+      final product = Item.fromJson(item);
 
       //add product to list itemsproduct
       itemsProduct.add(product);
@@ -32,14 +32,39 @@ class Products{
 
 class SearchModel {
     SearchModel({
+        this.query,
+        this.total,
+        this.seller,
+        this.items,
+    });
+
+    String query;
+    int total;
+    Seller seller;
+    List<Item> items;
+
+    factory SearchModel.fromJson(Map<String, dynamic> json) => SearchModel(
+        query: json["query"],
+        total: json["total"],
+        seller: Seller.fromJson(json["seller"]),
+        items: List<Item>.from(json["items"].map((x) => Item.fromJson(x))),
+    );
+
+    Map<String, dynamic> toJson() => {
+        "query": query,
+        "total": total,
+        "seller": seller.toJson(),
+        "items": List<dynamic>.from(items.map((x) => x.toJson())),
+    };
+}
+
+class Item {
+    Item({
         this.id,
         this.name,
         this.brand,
         this.thumbnail,
-        this.pictures,
         this.city,
-        this.seller,
-        this.description,
         this.price,
         this.currency,
         this.rating,
@@ -49,26 +74,20 @@ class SearchModel {
     String name;
     String brand;
     String thumbnail;
-    List<String> pictures;
     City city;
-    Seller seller;
-    String description;
-    int price;
+    double price;
     String currency;
-    int rating;
+    double rating;
 
-    factory SearchModel.fromJson(Map<String, dynamic> json) => SearchModel(
+    factory Item.fromJson(Map<String, dynamic> json) => Item(
         id: json["id"],
         name: json["name"],
         brand: json["brand"],
         thumbnail: json["thumbnail"],
-        pictures: List<String>.from(json["pictures"].map((x) => x)),
         city: City.fromJson(json["city"]),
-        seller: Seller.fromJson(json["seller"]),
-        description: json["description"],
-        price: json["price"],
+        price: json["price"].toDouble(),
         currency: json["currency"],
-        rating: json["rating"],
+        rating: json["rating"].toDouble(),
     );
 
     Map<String, dynamic> toJson() => {
@@ -76,10 +95,7 @@ class SearchModel {
         "name": name,
         "brand": brand,
         "thumbnail": thumbnail,
-        "pictures": List<dynamic>.from(pictures.map((x) => x)),
         "city": city.toJson(),
-        "seller": seller.toJson(),
-        "description": description,
         "price": price,
         "currency": currency,
         "rating": rating,
