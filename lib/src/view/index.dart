@@ -41,7 +41,7 @@ class _InitialPageState extends State<InitialPage> {
                     borderRadius: BorderRadius.circular(15.0),
                   ),
                   color: Colors.white,
-                  elevation: 10,
+                  elevation: 5,
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -72,12 +72,25 @@ class _InitialPageState extends State<InitialPage> {
                           RaisedButton(
                             child: const Text('Mouse'),
                             color: purpleMainColor,
-                            onPressed: () {/* ... */},
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => Search(search: 'mouse'),
+                                ),
+                              );
+                            },
                           ),
                           RaisedButton(
                             child: const Text('Teclados'),
                             color: purpleMainColor,
-                            onPressed: () {/* ... */},
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      Search(search: 'teclados'),
+                                ),
+                              );
+                            },
                           ),
                         ],
                       ),
@@ -89,7 +102,7 @@ class _InitialPageState extends State<InitialPage> {
                     borderRadius: BorderRadius.circular(15.0),
                   ),
                   color: Colors.white,
-                  elevation: 10,
+                  elevation: 5,
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -106,12 +119,26 @@ class _InitialPageState extends State<InitialPage> {
                           RaisedButton(
                             child: const Text('Android'),
                             color: purpleMainColor,
-                            onPressed: () {/* ... */},
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      Search(search: 'celular'),
+                                ),
+                              );
+                            },
                           ),
                           RaisedButton(
                             child: const Text('IOS'),
                             color: purpleMainColor,
-                            onPressed: () {/* ... */},
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      Search(search: 'iphone'),
+                                ),
+                              );
+                            },
                           ),
                         ],
                       ),
@@ -123,7 +150,7 @@ class _InitialPageState extends State<InitialPage> {
                     borderRadius: BorderRadius.circular(15.0),
                   ),
                   color: Colors.white,
-                  elevation: 10,
+                  elevation: 5,
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -140,12 +167,26 @@ class _InitialPageState extends State<InitialPage> {
                           RaisedButton(
                             child: const Text('Neveras'),
                             color: purpleMainColor,
-                            onPressed: () {/* ... */},
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      Search(search: 'nevera'),
+                                ),
+                              );
+                            },
                           ),
                           RaisedButton(
                             child: const Text('Lavadoras'),
                             color: purpleMainColor,
-                            onPressed: () {/* ... */},
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      Search(search: 'lavadora'),
+                                ),
+                              );
+                            },
                           ),
                         ],
                       ),
@@ -157,7 +198,7 @@ class _InitialPageState extends State<InitialPage> {
                     borderRadius: BorderRadius.circular(15.0),
                   ),
                   color: Colors.white,
-                  elevation: 10,
+                  elevation: 5,
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
@@ -174,7 +215,71 @@ class _InitialPageState extends State<InitialPage> {
                           RaisedButton(
                             child: const Text('Relojes'),
                             color: purpleMainColor,
-                            onPressed: () {/* ... */},
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => Search(search: 'reloj'),
+                                ),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  color: Colors.white,
+                  elevation: 5,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const ListTile(
+                        leading: Icon(Icons.computer, size: 60),
+                        title: Text('Vehiculos',
+                            style: TextStyle(
+                              fontSize: 30.0,
+                              color: purpleMainColor,
+                            )),
+                      ),
+                      ButtonBar(
+                        children: <Widget>[
+                          RaisedButton(
+                            child: const Text('Carros'),
+                            color: purpleMainColor,
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => Search(search: 'carro'),
+                                ),
+                              );
+                            },
+                          ),
+                          RaisedButton(
+                            child: const Text('Motos'),
+                            color: purpleMainColor,
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => Search(search: 'moto'),
+                                ),
+                              );
+                            },
+                          ),
+                          RaisedButton(
+                            child: const Text('Bicicletas'),
+                            color: purpleMainColor,
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      Search(search: 'bicicleta'),
+                                ),
+                              );
+                            },
                           ),
                         ],
                       ),
