@@ -138,30 +138,160 @@ class _DetailsPageState extends State<DetailsPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             RaisedButton(
-                              child: Text('Next'),
-                              onPressed: _nextImage,
-                              elevation: 5.0,
-                              color: purpleComplementaryColor,
-                            ),
-                            SizedBox(width: 10.0),
-                            RaisedButton(
                               child: Text('Previous'),
                               onPressed: _previousImage,
                               elevation: 5.0,
                               color: purpleComplementaryColor,
                             ),
+                            SizedBox(width: 10.0),
+                            RaisedButton(
+                              child: Text('Next'),
+                              onPressed: _nextImage,
+                              elevation: 5.0,
+                              color: purpleComplementaryColor,
+                            ),
                           ]),
                       SizedBox(height: 15.0),
-                      Text(
-                        'Nombre del producto',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontFamily: 'Monserrat',
-                          fontSize: 27,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      Container(
+                        padding: EdgeInsets.all(20.0),
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                'Nombre del producto',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 27),
+                              ),
+                            ]),
                       ),
                       SizedBox(height: 15.0),
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              'Marca',
+                              style: TextStyle(
+                                color: Colors.black38,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(width: 30.0),
+                            Icon(Icons.location_on,
+                                color: blueComplementaryColor),
+                            SizedBox(
+                              width: 5.0,
+                            ),
+                            Text(
+                              'Ciudad',
+                              style: TextStyle(
+                                color: blueComplementaryColor,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            )
+                          ]),
+                      SizedBox(height: 15.0),
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              'Vendedor',
+                              style: TextStyle(
+                                color: Colors.black38,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(width: 30.0),
+                            Icon(Icons.attach_money,
+                                color: blueComplementaryColor),
+                            SizedBox(
+                              width: 5.0,
+                            ),
+                            Text(
+                              '35.000',
+                              style: TextStyle(
+                                color: blueComplementaryColor,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 2.0,
+                            ),
+                            Text(
+                              'COP',
+                              style: TextStyle(
+                                color: blueComplementaryColor,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            )
+                          ]),
+                      SizedBox(height: 15.0),
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(Icons.star, color: blueComplementaryColor),
+                            SizedBox(
+                              width: 5.0,
+                            ),
+                            Text(
+                              'Rating',
+                              style: TextStyle(
+                                color: Colors.black38,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            )
+                          ]),
+                      SizedBox(height: 15.0),
+                      Container(
+                        padding: EdgeInsets.all(20.0),
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                'Este televisor LED utiliza un nuevo tipo de luz en la pantalla, que lo hace súper delgado. Niveles de negro más profundos. Ideal para instalarlo en la pared. Perfecto para habitaciones claras y para tener la mejor experiencia de cine en casa. Ayuda al ahorro de energía. Pantalla Crystal Display Sumérgete en tus contenidos con una gama de colores mucho más amplia. La pantalla Crystal Display garantiza una expresión de colores optimizada para que no te pierdas ningún detalle. Su increíble calidad de imagen es posible gracias al procesador Crystal UHD 4K, el cual ofrece amplia gama de colores vivos y vibrantes, optimiza el contraste en escenas oscuras y permite equilibrar el brillo de los contenidos gracias a su Alto Rango Dinámico (HDR) Diseño elegante para que veas las imágenes sin límites. Fabricado con un estilo minimalista impecable de marcos ultradelgados que establece estándares nuevos en diseño. Podrás disfrutar de la experiencia cinematográfica más inmersiva que hayas vivido. La tecnología de Alto Rango Dinámico (HDR) optimiza la regulación de brillo del televisor para que puedas disfrutar de un inmenso espectro de colores y detalles visuales, incluso en las escenas más oscuras. Gracias a que tiene AirPlay 2 integrado, puedes transmitir o compartir contenido desde dispositivos Apple en la pantalla grande. Puedes reproducir videos, música, fotografías y más sin esfuerzo desde tu iPhone, iPad y Mac en tu televisor ',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: 'Montserrat',
+                                    fontSize: 18),
+                              ),
+                            ]),
+                      ),
+                      SizedBox(
+                        height: 15.0,
+                      ),
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(Icons.shopping_cart,
+                                color: purpleComplementaryColor),
+                            SizedBox(
+                              width: 5.0,
+                            ),
+                            RaisedButton(
+                              child: Text(
+                                'Agregar al carrito',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15),
+                              ),
+                              elevation: 5,
+                              color: purpleComplementaryColor,
+                              onPressed: () {
+                                print('Click start');
+                              },
+                            ),
+                          ]),
                     ])),
               ],
 
