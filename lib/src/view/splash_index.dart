@@ -162,11 +162,7 @@ class _InitialPageState extends State<InitialPage> {
                       ButtonBar(
                         children: <Widget>[
                           RaisedButton(
-                            child: const Text('Mouse'),
-                            onPressed: () {/* ... */},
-                          ),
-                          RaisedButton(
-                            child: const Text('Teclados'),
+                            child: const Text('Relojes'),
                             onPressed: () {/* ... */},
                           ),
                         ],
