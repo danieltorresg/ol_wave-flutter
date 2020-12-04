@@ -2,26 +2,42 @@ import 'package:flutter/material.dart';
 import 'package:old_wave_flutter/src/constants/constants.dart';
 
 class DetailsPage extends StatefulWidget {
-  DetailsPage({Key key, this.title}) : super(key: key);
+  DetailsPage({Key key, this.id}) : super(key: key);
 
-  final String title;
+  final String id;
 
   @override
   _DetailsPageState createState() => _DetailsPageState();
 }
 
 class _DetailsPageState extends State<DetailsPage> {
-  var valueAux = {
-    'name': 'Celular Samsung A50',
-    'brand': 'Samsung',
-    'city': 'Medellín',
-    'price': '750.000',
-    'ResellerName': "Éxito",
-    'ResellerLogo': Icons.android,
-    'iconColor': Colors.blueAccent,
-    'description': 'Celular samsung con 4 gb de ram y 128 gb de interna',
-    'rating': '5',
-  };
+  TextEditingController _controller;
+  int photoIndex = 0;
+
+  List<String> photos = [
+    'assets/oldwave-icon.png',
+    'assets/oldwave-logo-horizontal.png',
+    'assets/oldwave-logo-vertical.png',
+  ];
+
+  void _previousImage() {
+    setState(() {
+      photoIndex = photoIndex > 0 ? photoIndex - 1 : 0;
+    });
+  }
+
+  void _nextImage() {
+    setState(() {
+      photoIndex = photoIndex < photos.length - 1 ? photoIndex + 1 : photoIndex;
+    });
+  }
+
+  @override
+  void initState() {
+    _controller = TextEditingController(text: this.widget.id);
+    print(_controller.text);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,140 +78,155 @@ class _DetailsPageState extends State<DetailsPage> {
             ),
           ],
         ),
-        body: Container(
-          child: Column(
-            children: <Widget>[
-              Container(
-                child: Container(
-                  margin:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.all(Radius.circular(30)),
+        body: SingleChildScrollView(
+          child: Container(
+            child: Column(
+              children: <Widget>[
+                Container(
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 10),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                    ),
+                    child: TextField(
+                      cursorColor: Colors.grey,
+                      style: TextStyle(fontSize: 16.0, color: Colors.black),
+                      decoration: InputDecoration(
+                          prefixIcon: Icon(
+                            Icons.search,
+                            color: purpleMainColor,
+                            size: 25,
+                          ),
+                          border: InputBorder.none,
+                          hintText: "Search Products",
+                          hintStyle:
+                              TextStyle(color: Colors.black26, fontSize: 14.0)),
+                    ),
                   ),
-                  child: TextField(
-                    cursorColor: Colors.grey,
-                    style: TextStyle(fontSize: 16.0, color: Colors.black),
-                    decoration: InputDecoration(
-                        prefixIcon: Icon(
-                          Icons.search,
-                          color: purpleMainColor,
-                          size: 25,
-                        ),
-                        border: InputBorder.none,
-                        hintText: "Search Products",
-                        hintStyle:
-                            TextStyle(color: Colors.black26, fontSize: 14.0)),
-                  ),
+                  decoration: BoxDecoration(color: purpleMainColor),
                 ),
-                decoration: BoxDecoration(color: purpleMainColor),
-              ),
-              Container(
-                padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-                height: 570,
-                width: double.maxFinite,
-                child: Card(
-                  elevation: 5,
-                  child: Column(
-                    children: <Widget>[
-                      Image.asset('assets/Mockup_Mobile.png'),
-                      Container(
-                        child: RichText(
-                          text: TextSpan(
-                            text: '\n${valueAux['name']}',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: purpleComplementaryColor,
-                                fontSize: 20),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: RichText(
-                          text: TextSpan(
-                            text: '\n${valueAux['brand']}',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: blueComplementaryColor,
-                                fontSize: 18),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: RichText(
-                          text: TextSpan(
-                            text: '\n${valueAux['city']}',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: blueComplementaryColor,
-                                fontSize: 18),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: RichText(
-                          text: TextSpan(
-                            text: '\n${valueAux['price']}',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black,
-                                fontSize: 18),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: RichText(
-                          text: TextSpan(
-                            text: '\n${valueAux['ResellerName']}',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black38,
-                                fontSize: 18),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 19.0),
-                          child: Align(
-                            alignment: Alignment.center,
-                            child: Image.asset(
-                              'assets/user_icon.png',
-                              fit: BoxFit.fill,
+                Container(
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                      Center(
+                        child: Stack(
+                          children: <Widget>[
+                            Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(25.0),
+                                  image: DecorationImage(
+                                      image: AssetImage(photos[photoIndex]),
+                                      fit: BoxFit.cover)),
+                              height: 400.0,
+                              width: 300.0,
                             ),
-                          ),
+                            Positioned(
+                              top: 375.0,
+                              left: 25.0,
+                              right: 25.0,
+                              child: SelectedPhoto(
+                                  numberOfDots: photos.length,
+                                  photoIndex: photoIndex),
+                            ),
+                          ],
                         ),
                       ),
-                      Container(
-                        child: RichText(
-                          text: TextSpan(
-                            text: '\n${valueAux['description']}',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black,
-                                fontSize: 15),
-                          ),
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            RaisedButton(
+                              child: Text('Next'),
+                              onPressed: _nextImage,
+                              elevation: 5.0,
+                              color: purpleComplementaryColor,
+                            ),
+                            SizedBox(width: 10.0),
+                            RaisedButton(
+                              child: Text('Previous'),
+                              onPressed: _previousImage,
+                              elevation: 5.0,
+                              color: purpleComplementaryColor,
+                            ),
+                          ]),
+                      SizedBox(height: 15.0),
+                      Text(
+                        'Nombre del producto',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontFamily: 'Monserrat',
+                          fontSize: 27,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Container(
-                        child: RichText(
-                          text: TextSpan(
-                            text: '\n${'Rating:' + valueAux['rating']}',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black38,
-                                fontSize: 15),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
+                      SizedBox(height: 15.0),
+                    ])),
+              ],
 
-            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            ),
           ),
         ));
+  }
+}
+
+class SelectedPhoto extends StatelessWidget {
+  final int numberOfDots;
+  final int photoIndex;
+
+  SelectedPhoto({this.numberOfDots, this.photoIndex});
+
+  Widget _inactivePhoto() {
+    return new Container(
+        child: new Padding(
+      padding: const EdgeInsets.only(left: 3.0, right: 3.0),
+      child: Container(
+        height: 8.0,
+        width: 8.0,
+        decoration: BoxDecoration(
+            color: Colors.grey, borderRadius: BorderRadius.circular(4.0)),
+      ),
+    ));
+  }
+
+  Widget _activePhoto() {
+    return Container(
+      child: Padding(
+        padding: EdgeInsets.only(left: 3.0, right: 3.0),
+        child: Container(
+          height: 10.0,
+          width: 10.0,
+          decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(5.0),
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.grey, spreadRadius: 0.0, blurRadius: 2.0)
+              ]),
+        ),
+      ),
+    );
+  }
+
+  List<Widget> _buildDots() {
+    List<Widget> dots = [];
+
+    for (int i = 0; i < numberOfDots; ++i) {
+      dots.add(i == photoIndex ? _activePhoto() : _inactivePhoto());
+    }
+
+    return dots;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new Center(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: _buildDots(),
+      ),
+    );
   }
 }
