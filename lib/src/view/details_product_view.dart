@@ -58,8 +58,8 @@ class _DetailsPageState extends State<DetailsPage> {
             ),
           ],
         ),
-        body: Center(
-          child: Stack(
+        body: Container(
+          child: Column(
             children: <Widget>[
               Container(
                 child: Container(
@@ -87,14 +87,20 @@ class _DetailsPageState extends State<DetailsPage> {
                 decoration: BoxDecoration(color: purpleMainColor),
               ),
               Container(
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/Mockup_Mobile.png'),
-                    scale: 1,
+                padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+                height: 500,
+                width: double.maxFinite,
+                child: Card(
+                  elevation: 5,
+                  child: Column(
+                    children: <Widget>[
+                      Image.asset('assets/Mockup_Mobile.png'),
+                    ],
                   ),
                 ),
               ),
             ],
+
             // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           ),
         ));
