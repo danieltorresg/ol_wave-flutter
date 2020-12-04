@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:old_wave_flutter/src/constants/constants.dart';
 import 'package:old_wave_flutter/src/view/appbar.dart';
 import 'package:old_wave_flutter/src/view/searchBar.dart';
 import 'package:old_wave_flutter/src/view/details_product_view.dart';
@@ -293,7 +294,7 @@ class _SearchState extends State<Search> {
         text: TextSpan(
           text: '${data['price']}',
           style: TextStyle(
-              fontWeight: FontWeight.bold, color: Colors.green, fontSize: 20),
+              fontWeight: FontWeight.bold, color: purpleMainColor, fontSize: 20),
           children: <TextSpan>[
             TextSpan(
                 text: '\n${data['currency']}',
