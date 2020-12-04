@@ -1,22 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:old_wave_flutter/src/constants/constants.dart';
 
-class CryptoData {
-  static final getData = [
-    {
-      'name': 'Celular Samsung A50',
-      'brand': 'Samsung',
-      'ciudad': 'Medellín',
-      'Precio': '750.000',
-      'ResellerName': "Éxito",
-      'ResellerLogo': Icons.android,
-      'iconColor': Colors.blueAccent,
-      'descripcion': 'Celular samsung con 4 gb de ram y 128 gb de interna',
-      'rating': '5',
-    },
-  ];
-}
-
 class DetailsPage extends StatefulWidget {
   DetailsPage({Key key, this.title}) : super(key: key);
 
@@ -27,7 +11,6 @@ class DetailsPage extends StatefulWidget {
 }
 
 class _DetailsPageState extends State<DetailsPage> {
-  var cryptoData = CryptoData.getData;
   var valueAux = {
     'name': 'Celular Samsung A50',
     'brand': 'Samsung',
