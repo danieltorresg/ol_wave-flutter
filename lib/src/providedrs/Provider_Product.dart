@@ -6,20 +6,20 @@ import '../model/Model_search_product.dart';
 
 class ProductosProvider{
 
-  String _url = "http://blackstorenetcore.eba-py2kgy33.us-east-1.elasticbeanstalk.com/api/search?q= ipad";
+  //String _url = "blackstorenetcore.eba-py2kgy33.us-east-1.elasticbeanstalk.comipad";
 
 
   Future<List<SearchModel>> getProduct(String query) async{
 
-    //final url = http(_url,"");
+    final url = "http://blackstorenetcore.eba-py2kgy33.us-east-1.elasticbeanstalk.com/api/search?q=$query";
 
-    final resp  = await http.get(_url);
+    final resp  = await http.get(url);
 
     final decodedData = json.decode(resp.body);
- 
-    print('prueba $resp');
 
-    return [];
+    print(decodedData);
+
+    return[];
 
   }
 }
