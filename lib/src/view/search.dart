@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:old_wave_flutter/src/view/appbar.dart';
-import 'package:old_wave_flutter/src/view/splash_searchBar.dart';
+import 'package:old_wave_flutter/src/view/searchBar.dart';
 import 'package:old_wave_flutter/src/view/details_product_view.dart';
 
 class CryptoData {
@@ -132,8 +132,6 @@ class Search extends StatefulWidget {
   Search({Key key, this.search}) : super(key: key);
   final String search;
 
-
-
   @override
   _SearchState createState() => _SearchState();
 }
@@ -141,13 +139,14 @@ class Search extends StatefulWidget {
 class _SearchState extends State<Search> {
   TextEditingController _controller;
   var _datosCompletos = CryptoData.retorno["items"] as List;
-  
+
   @override
   void initState() {
     _controller = TextEditingController(text: this.widget.search);
     print(_controller.text);
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -176,7 +175,9 @@ class _SearchState extends State<Search> {
                               print("Abriendo producto" +
                                   _datosCompletos[index]['id']),
                               Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => DetailsPage(id: _datosCompletos[index]['id'],),
+                                builder: (context) => DetailsPage(
+                                  id: _datosCompletos[index]['id'],
+                                ),
                               ))
                             },
                             child: Container(
