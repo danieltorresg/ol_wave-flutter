@@ -12,13 +12,9 @@ class DetailsPage extends StatefulWidget {
   _DetailsPageState createState() => _DetailsPageState();
 }
 
-Widget prueba() {
-  DetailsProvider detailsProvider = new DetailsProvider();
-  detailsProvider.getProduct_net('MCO566836190');
-  return Text('data');
-}
-
 class _DetailsPageState extends State<DetailsPage> {
+  DetailsProvider detailsProvider = new DetailsProvider();
+
   var valueAux = {
     "id": "MCO566836190",
     "name": "televisor samsung 58 pulgadas 147 cm 58tu8000 led 4k uhd crystal",
@@ -67,6 +63,25 @@ class _DetailsPageState extends State<DetailsPage> {
     _controller = TextEditingController(text: this.widget.id);
     print(_controller.text);
     super.initState();
+  }
+
+  Widget productDetailWidget() {
+    return FutureBuilder(
+      future: detailsProvider.getProduct(_controller.text),
+      builder: (context, AsyncSnapshot<dynamic> snapshot) {
+        if (snapshot.hasData) {
+          final products = snapshot.data;
+
+          print(products);
+
+          return Text('products');
+        } else {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+      },
+    );
   }
 
   @override
@@ -137,9 +152,9 @@ class _DetailsPageState extends State<DetailsPage> {
                   ),
                   decoration: BoxDecoration(color: purpleMainColor),
                 ),
-                prueba(),
                 Column(
                   children: <Widget>[
+                    productDetailWidget(),
                     Container(
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
