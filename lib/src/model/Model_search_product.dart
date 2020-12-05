@@ -12,12 +12,31 @@ class Products{
 
   Products();
 
-  Products.fromJsonList( List<dynamic> jsonList){
+  Products.fromJsonList( List<dynamic> jsonList_net, List<dynamic> jsonList_django, List<dynamic> jsonList_node){
 
-    if(jsonList == null) return;//If json it's null them return
+    if(jsonList_net == null) return;//If json it's null them return
+    if(jsonList_django == null) return;//If json it's null them return
 
     //I take the crow json of product and convert to DartObject before add to itemsproduct
-    for(var item in jsonList){
+    for(var item in jsonList_net){
+
+      //map de json to dart object
+      final product = Item.fromJson(item);
+
+      //add product to list itemsproduct
+      itemsProduct.add(product);
+    }
+    
+    for(var item in jsonList_django){
+
+      //map de json to dart object
+      final product = Item.fromJson(item);
+
+      //add product to list itemsproduct
+      itemsProduct.add(product);
+    }
+    
+    for(var item in jsonList_node){
 
       //map de json to dart object
       final product = Item.fromJson(item);
@@ -80,7 +99,7 @@ class Item {
     double rating;
 
     factory Item.fromJson(Map<String, dynamic> json) => Item(
-        id: json["id"],
+        id: json["id"].toString(),
         name: json["name"],
         brand: json["brand"],
         thumbnail: json["thumbnail"],

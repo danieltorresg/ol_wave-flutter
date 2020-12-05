@@ -8,31 +8,21 @@ class ProductosProvider{
 
 
   Future<List<Item>> getProduct_net(String query) async{
+    final url_net = "http://blackstorenetcore.eba-py2kgy33.us-east-1.elasticbeanstalk.com/api/search?q=$query";
+    final resp_net  = await http.get(url_net);
+    final decodedData_net = json.decode(resp_net.body);
 
-    final url = "http://blackstorenetcore.eba-py2kgy33.us-east-1.elasticbeanstalk.com/api/search?q=$query";
+    final url_django = "http://development.eba-2veq4gdy.us-west-2.elasticbeanstalk.com/django_api/search/?q=$query";
+    final resp_django  = await http.get(url_django);
+    final decodedData_django = json.decode(resp_django.body);
 
-    final resp  = await http.get(url);
+    final url_node = "https://yurgqjbmwb.execute-api.us-east-2.amazonaws.com/dev/api/search/?q=$query";
+    final resp_node  = await http.get(url_node);
+    final decodedData_node = json.decode(resp_node.body);
 
-    final decodedData = json.decode(resp.body);
+    final totalProducts = Products.fromJsonList(decodedData_net['items'], decodedData_django['items'], decodedData_node['items']);    
 
-    final product = Products.fromJsonList(decodedData['items']);
-
-    return product.itemsProduct;
-
-  }
-
-    Future<List<Item>> getProduct_django(String query) async{
-
-    final url = "http://development.eba-2veq4gdy.us-west-2.elasticbeanstalk.com/django_api/search/?q=$query";
-
-    final resp  = await http.get(url);
-
-    final decodedData = json.decode(resp.body);
-
-    final product = Products.fromJsonList(decodedData['items']);
-
-    print(decodedData);
-    return product.itemsProduct;
+    return totalProducts.itemsProduct;
 
   }
 
