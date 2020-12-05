@@ -188,6 +188,17 @@ class _InitialPageState extends State<InitialPage> {
                               );
                             },
                           ),
+                          RaisedButton(
+                            child: const Text('Hornos'),
+                            color: purpleMainColor,
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => Search(search: 'horno'),
+                                ),
+                              );
+                            },
+                          ),
                         ],
                       ),
                     ],
@@ -219,6 +230,29 @@ class _InitialPageState extends State<InitialPage> {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
                                   builder: (context) => Search(search: 'reloj'),
+                                ),
+                              );
+                            },
+                          ),
+                          RaisedButton(
+                            child: const Text('Audifonos'),
+                            color: purpleMainColor,
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      Search(search: 'audifonos'),
+                                ),
+                              );
+                            },
+                          ),
+                          RaisedButton(
+                            child: const Text('Gafas'),
+                            color: purpleMainColor,
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => Search(search: 'gafas'),
                                 ),
                               );
                             },
