@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:old_wave_flutter/src/view/splash_view.dart';
-import 'package:old_wave_flutter/src/constants/constants.dart';
+import 'package:old_wave_flutter/src/view/index.dart';
+import 'package:old_wave_flutter/src/view/search.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,12 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Old Wave',
-      theme: ThemeData(
-        primarySwatch: Colors.yellow,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MyHomePage(title: 'Funciona'),
+      home: InitialPage(),
     );
   }
 }
-
