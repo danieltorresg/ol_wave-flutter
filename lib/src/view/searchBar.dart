@@ -19,7 +19,6 @@ class _SearchBar extends State<SearchBar> {
         ),
         child: TextField(
           onSubmitted: (value) => {
-            print("Búsqueda" + value),
             Navigator.of(context).push(MaterialPageRoute(
               builder: (context) => Search(search: value,)
             ))

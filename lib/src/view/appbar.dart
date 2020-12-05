@@ -35,14 +35,14 @@ class AppBarApp extends StatelessWidget implements PreferredSizeWidget {
           icon: Image.asset('assets/user_icon.png'),
           color: purpleMainColor,
           onPressed: () {
-            print('Click search');
+            print('Click User');
           },
         ),
         IconButton(
           icon: Icon(Icons.shopping_cart),
           color: purpleComplementaryColor,
           onPressed: () {
-            print('Click start');
+            print('Click Cart');
           },
         ),
       ],

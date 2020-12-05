@@ -21,7 +21,6 @@ class _SearchState extends State<Search> {
   @override
   void initState() {
     _controller = TextEditingController(text: this.widget.search);
-    print(_controller.text);
     super.initState();
   }
 
@@ -32,7 +31,6 @@ class _SearchState extends State<Search> {
         if (snapshot.hasData) {
           final products = snapshot.data;
           if (products.length == 0) {
-            print(products.length);
             return Center(child: Text("No hay productos"),);
 
           }
@@ -82,7 +80,6 @@ class _SearchState extends State<Search> {
 
   Widget productName(data) {
     final texto = data.name.toString();
-    print(data.name);
     return Container(
       padding: EdgeInsets.all(1),
       child: Column(
