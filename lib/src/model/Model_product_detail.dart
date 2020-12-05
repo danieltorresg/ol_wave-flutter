@@ -5,14 +5,32 @@ ProductDetail productDetailFromJson(String str) =>
 
 String productDetailToJson(ProductDetail data) => json.encode(data.toJson());
 
+class ProductsDetail {
+//   //This is the list with all product of the search
+  List<ProductDetail> itemsProduct = new List();
 
+  ProductsDetail();
+
+  ProductsDetail.fromJsonList(List<dynamic> jsonList) {
+    if (jsonList == null) return; //If json it's null them return
+
+    //I take the crow json of product and convert to DartObject before add to itemsproduct
+    for (var item in jsonList) {
+      //map de json to dart object
+      final product = ProductDetail.fromJson(item);
+
+      //add product to list itemsproduct
+      itemsProduct.add(product);
+    }
+  }
+}
 
 class ProductDetail {
   ProductDetail({
     this.id,
     this.name,
     this.brand,
-    this.thubnail,
+    this.thumbnail,
     this.pictures,
     this.city,
     this.seller,
@@ -22,44 +40,44 @@ class ProductDetail {
     this.rating,
   });
 
-  int id;
+  String id;
   String name;
   String brand;
-  String thubnail;
+  String thumbnail;
   List<String> pictures;
   City city;
   Seller seller;
   String description;
-  int price;
+  double price;
   String currency;
-  int rating;
+  double rating;
 
   factory ProductDetail.fromJson(Map<String, dynamic> json) => ProductDetail(
-        id          : json["id"],
-        name        : json["name"],
-        brand       : json["brand"],
-        thubnail    : json["thubnail"],
-        pictures    : List<String>.from(json["pictures"].map((x) => x)),
-        city        : City.fromJson(json["city"]),
-        seller      : Seller.fromJson(json["seller"]),
-        description : json["description"],
-        price       : json["price"],
-        currency    : json["currency"],
-        rating      : json["rating"],
+        id: json["id"],
+        name: json["name"],
+        brand: json["brand"],
+        thumbnail: json["thumbnail"],
+        pictures: List<String>.from(json["pictures"].map((x) => x)),
+        city: City.fromJson(json["city"]),
+        seller: Seller.fromJson(json["seller"]),
+        description: json["description"],
+        price: json["price"].toDouble(),
+        currency: json["currency"],
+        rating: json["rating"].toDouble(),
       );
 
   Map<String, dynamic> toJson() => {
-        "id"          : id,
-        "name"        : name,
-        "brand"       : brand,
-        "thubnail"    : thubnail,
-        "pictures"    : List<dynamic>.from(pictures.map((x) => x)),
-        "city"        : city.toJson(),
-        "seller"      : seller.toJson(),
-        "description" : description,
-        "price"       : price,
-        "currency"    : currency,
-        "rating"      : rating,
+        "id": id,
+        "name": name,
+        "brand": brand,
+        "thumbnail": thumbnail,
+        "pictures": List<dynamic>.from(pictures.map((x) => x)),
+        "city": city.toJson(),
+        "seller": seller.toJson(),
+        "description": description,
+        "price": price,
+        "currency": currency,
+        "rating": rating,
       };
 }
 
