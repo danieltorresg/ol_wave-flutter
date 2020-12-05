@@ -87,7 +87,7 @@ class _InitialPageState extends State<InitialPage> {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
                                   builder: (context) =>
-                                      Search(search: 'teclados'),
+                                      Search(search: 'teclado'),
                                 ),
                               );
                             },
