@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import '../model/Model_product_detail.dart';
 
 class DetailsProvider {
-  Future getProduct_net(String idProduct) async {
+  Future getProduct(String idProduct) async {
     final url =
         "http://blackstorenetcore.eba-py2kgy33.us-east-1.elasticbeanstalk.com/api/item/$idProduct";
 
