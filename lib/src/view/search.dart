@@ -31,7 +31,11 @@ class _SearchState extends State<Search> {
       builder: (context, AsyncSnapshot<List> snapshot) {
         if (snapshot.hasData) {
           final products = snapshot.data;
-          print(products);
+          if (products.length == 0) {
+            print(products.length);
+            return Center(child: Text("No hay productos"),);
+
+          }
           return showProducts(products);
         } else {
           return Center(
