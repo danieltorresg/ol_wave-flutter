@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:old_wave_flutter/src/constants/constants.dart';
+import 'package:old_wave_flutter/src/providedrs/Provaider_Product_Detail.dart';
+import 'package:old_wave_flutter/src/providedrs/Provider_Product.dart';
 
 class DetailsPage extends StatefulWidget {
   DetailsPage({Key key, this.id}) : super(key: key);
@@ -10,7 +12,35 @@ class DetailsPage extends StatefulWidget {
   _DetailsPageState createState() => _DetailsPageState();
 }
 
+Widget prueba() {
+  DetailsProvider detailsProvider = new DetailsProvider();
+  detailsProvider.getProduct_net('MCO566836190');
+  return Text('data');
+}
+
 class _DetailsPageState extends State<DetailsPage> {
+  var valueAux = {
+    "id": "MCO566836190",
+    "name": "televisor samsung 58 pulgadas 147 cm 58tu8000 led 4k uhd crystal",
+    "brand": "Samsung",
+    "thumbnail":
+        "http://mco-s1-p.mlstatic.com/658727-MCO42366015634_062020-I.jpg",
+    "pictures": [
+      "http://mco-s1-p.mlstatic.com/658727-MCO42366015634_062020-O.jpg"
+    ],
+    "city": {"name": "Bogotá D.C", "code": "CO-DC"},
+    "seller": {
+      "id": "BS01",
+      "name": "BlackStore",
+      "logo": "nada por el momento"
+    },
+    "description":
+        "Este televisor LED utiliza un nuevo tipo de luz en la pantalla, que lo hace súper delgado. Niveles de negro más profundos. Ideal para instalarlo en la pared. Perfecto para habitaciones claras y para tener la mejor experiencia de cine en casa. Ayuda al ahorro de energía. Pantalla Crystal Display Sumérgete en tus contenidos con una gama de colores mucho más amplia. La pantalla Crystal Display garantiza una expresión de colores optimizada para que no te pierdas ningún detalle. Su increíble calidad de imagen es posible gracias al procesador Crystal UHD 4K, el cual ofrece amplia gama de colores vivos y vibrantes, optimiza el contraste en escenas oscuras y permite equilibrar el brillo de los contenidos gracias a su Alto Rango Dinámico (HDR) Diseño elegante para que veas las imágenes sin límites. Fabricado con un estilo minimalista impecable de marcos ultradelgados que establece estándares nuevos en diseño. Podrás disfrutar de la experiencia cinematográfica más inmersiva que hayas vivido. La tecnología de Alto Rango Dinámico (HDR) optimiza la regulación de brillo del televisor para que puedas disfrutar de un inmenso espectro de colores y detalles visuales, incluso en las escenas más oscuras. Gracias a que tiene AirPlay 2 integrado, puedes transmitir o compartir contenido desde dispositivos Apple en la pantalla grande. Puedes reproducir videos, música, fotografías y más sin esfuerzo desde tu iPhone, iPad y Mac en tu televisor Samsung.",
+    "price": 1819900,
+    "currency": "COP",
+    "rating": 3,
+  };
+
   TextEditingController _controller;
   int photoIndex = 0;
 
@@ -107,192 +137,210 @@ class _DetailsPageState extends State<DetailsPage> {
                   ),
                   decoration: BoxDecoration(color: purpleMainColor),
                 ),
-                Container(
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                      Center(
-                        child: Stack(
-                          children: <Widget>[
-                            Container(
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(25.0),
-                                  image: DecorationImage(
-                                      image: AssetImage(photos[photoIndex]),
-                                      fit: BoxFit.cover)),
-                              height: 400.0,
-                              width: 300.0,
-                            ),
-                            Positioned(
-                              top: 375.0,
-                              left: 25.0,
-                              right: 25.0,
-                              child: SelectedPhoto(
-                                  numberOfDots: photos.length,
-                                  photoIndex: photoIndex),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            RaisedButton(
-                              child: Text('Previous'),
-                              onPressed: _previousImage,
-                              elevation: 5.0,
-                              color: purpleComplementaryColor,
-                            ),
-                            SizedBox(width: 10.0),
-                            RaisedButton(
-                              child: Text('Next'),
-                              onPressed: _nextImage,
-                              elevation: 5.0,
-                              color: purpleComplementaryColor,
-                            ),
-                          ]),
-                      SizedBox(height: 15.0),
-                      Container(
-                        padding: EdgeInsets.all(20.0),
+                prueba(),
+                Column(
+                  children: <Widget>[
+                    Container(
                         child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              Text(
-                                'Nombre del producto',
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontFamily: 'Montserrat',
+                          Center(
+                            child: Stack(
+                              children: <Widget>[
+                                Container(
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(25.0),
+                                      image: DecorationImage(
+                                          image: AssetImage(photos[
+                                              photoIndex]), //Reemplazar imagen
+                                          fit: BoxFit.cover)),
+                                  height: 400.0,
+                                  width: 300.0,
+                                ),
+                                Positioned(
+                                  top: 375.0,
+                                  left: 25.0,
+                                  right: 25.0,
+                                  child: SelectedPhoto(
+                                      numberOfDots: photos.length,
+                                      photoIndex: photoIndex),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                RaisedButton(
+                                  child: Text('Previous'),
+                                  onPressed: _previousImage,
+                                  elevation: 5.0,
+                                  color: purpleComplementaryColor,
+                                ),
+                                SizedBox(width: 10.0),
+                                RaisedButton(
+                                  child: Text('Next'),
+                                  onPressed: _nextImage,
+                                  elevation: 5.0,
+                                  color: purpleComplementaryColor,
+                                ),
+                              ]),
+                          SizedBox(height: 15.0),
+                          Container(
+                            padding: EdgeInsets.all(20.0),
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                  Container(
+                                    padding: EdgeInsets.all(20.0),
+                                    child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: <Widget>[
+                                          Text(
+                                            '${valueAux['name']}', //Reemplazar descripción producto
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontFamily: 'Montserrat',
+                                                fontSize: 27,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ]),
+                                  ),
+                                ]),
+                          ),
+                          SizedBox(height: 15.0),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text(
+                                  '${valueAux['brand']}', //Reemplazar marca producto
+                                  style: TextStyle(
+                                    color: Colors.black38,
+                                    fontSize: 18,
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 27),
-                              ),
-                            ]),
-                      ),
-                      SizedBox(height: 15.0),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              'Marca',
-                              style: TextStyle(
-                                color: Colors.black38,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(width: 30.0),
-                            Icon(Icons.location_on,
-                                color: blueComplementaryColor),
-                            SizedBox(
-                              width: 5.0,
-                            ),
-                            Text(
-                              'Ciudad',
-                              style: TextStyle(
-                                color: blueComplementaryColor,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            )
-                          ]),
-                      SizedBox(height: 15.0),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              'Vendedor',
-                              style: TextStyle(
-                                color: Colors.black38,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(width: 30.0),
-                            Icon(Icons.attach_money,
-                                color: blueComplementaryColor),
-                            SizedBox(
-                              width: 5.0,
-                            ),
-                            Text(
-                              '35.000',
-                              style: TextStyle(
-                                color: blueComplementaryColor,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(
-                              width: 2.0,
-                            ),
-                            Text(
-                              'COP',
-                              style: TextStyle(
-                                color: blueComplementaryColor,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            )
-                          ]),
-                      SizedBox(height: 15.0),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Icon(Icons.star, color: blueComplementaryColor),
-                            SizedBox(
-                              width: 5.0,
-                            ),
-                            Text(
-                              'Rating',
-                              style: TextStyle(
-                                color: Colors.black38,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            )
-                          ]),
-                      SizedBox(height: 15.0),
-                      Container(
-                        padding: EdgeInsets.all(20.0),
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: <Widget>[
-                              Text(
-                                'Este televisor LED utiliza un nuevo tipo de luz en la pantalla, que lo hace súper delgado. Niveles de negro más profundos. Ideal para instalarlo en la pared. Perfecto para habitaciones claras y para tener la mejor experiencia de cine en casa. Ayuda al ahorro de energía. Pantalla Crystal Display Sumérgete en tus contenidos con una gama de colores mucho más amplia. La pantalla Crystal Display garantiza una expresión de colores optimizada para que no te pierdas ningún detalle. Su increíble calidad de imagen es posible gracias al procesador Crystal UHD 4K, el cual ofrece amplia gama de colores vivos y vibrantes, optimiza el contraste en escenas oscuras y permite equilibrar el brillo de los contenidos gracias a su Alto Rango Dinámico (HDR) Diseño elegante para que veas las imágenes sin límites. Fabricado con un estilo minimalista impecable de marcos ultradelgados que establece estándares nuevos en diseño. Podrás disfrutar de la experiencia cinematográfica más inmersiva que hayas vivido. La tecnología de Alto Rango Dinámico (HDR) optimiza la regulación de brillo del televisor para que puedas disfrutar de un inmenso espectro de colores y detalles visuales, incluso en las escenas más oscuras. Gracias a que tiene AirPlay 2 integrado, puedes transmitir o compartir contenido desde dispositivos Apple en la pantalla grande. Puedes reproducir videos, música, fotografías y más sin esfuerzo desde tu iPhone, iPad y Mac en tu televisor ',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontFamily: 'Montserrat',
-                                    fontSize: 18),
-                              ),
-                            ]),
-                      ),
-                      SizedBox(
-                        height: 15.0,
-                      ),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Icon(Icons.shopping_cart,
-                                color: purpleComplementaryColor),
-                            SizedBox(
-                              width: 5.0,
-                            ),
-                            RaisedButton(
-                              child: Text(
-                                'Agregar al carrito',
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontFamily: 'Montserrat',
+                                  ),
+                                ),
+                                SizedBox(width: 30.0),
+                                Icon(Icons.location_on,
+                                    color: blueComplementaryColor),
+                                SizedBox(
+                                  width: 5.0,
+                                ),
+                                Text(
+                                  'Medellín', //Reemplazar nombre ciudad
+                                  style: TextStyle(
+                                    color: blueComplementaryColor,
+                                    fontSize: 18,
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 15),
-                              ),
-                              elevation: 5,
-                              color: purpleComplementaryColor,
-                              onPressed: () {
-                                print('Click start');
-                              },
-                            ),
-                          ]),
-                    ])),
+                                  ),
+                                )
+                              ]),
+                          SizedBox(height: 15.0),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text(
+                                  'Éxito', //Reemplazar nombre vendedor
+                                  style: TextStyle(
+                                    color: Colors.black38,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                SizedBox(width: 30.0),
+                                Icon(Icons.attach_money,
+                                    color: blueComplementaryColor),
+                                SizedBox(
+                                  width: 5.0,
+                                ),
+                                Text(
+                                  '${valueAux['price']}', //Reemplazar precio producto
+                                  style: TextStyle(
+                                    color: blueComplementaryColor,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 2.0,
+                                ),
+                                Text(
+                                  '${valueAux['currency']}', //Reemplazar currency
+                                  style: TextStyle(
+                                    color: blueComplementaryColor,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )
+                              ]),
+                          SizedBox(height: 15.0),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Icon(Icons.star, color: blueComplementaryColor),
+                                SizedBox(
+                                  width: 5.0,
+                                ),
+                                Text(
+                                  '${valueAux['rating']}', //Reemplazar rating
+                                  style: TextStyle(
+                                    color: Colors.black38,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )
+                              ]),
+                          SizedBox(height: 15.0),
+                          Container(
+                            padding: EdgeInsets.all(20.0),
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    '${valueAux['description']}', //Reemplazar descripción producto
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontFamily: 'Montserrat',
+                                        fontSize: 18),
+                                  ),
+                                ]),
+                          ),
+                          SizedBox(
+                            height: 15.0,
+                          ),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Icon(Icons.shopping_cart,
+                                    color: purpleComplementaryColor),
+                                SizedBox(
+                                  width: 5.0,
+                                ),
+                                RaisedButton(
+                                  child: Text(
+                                    'Agregar al carrito',
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontFamily: 'Montserrat',
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15),
+                                  ),
+                                  elevation: 5,
+                                  color: purpleComplementaryColor,
+                                  onPressed: () {
+                                    print('Click start');
+                                  },
+                                ),
+                              ]),
+                        ])),
+                  ],
+                ),
               ],
 
               // mainAxisAlignment: MainAxisAlignment.spaceBetween,
