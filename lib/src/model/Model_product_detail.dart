@@ -53,7 +53,7 @@ class ProductDetail {
   double rating;
 
   factory ProductDetail.fromJson(Map<String, dynamic> json) => ProductDetail(
-        id: json["id"],
+        id: json["id"].toString(),
         name: json["name"],
         brand: json["brand"],
         thumbnail: json["thumbnail"],

@@ -63,7 +63,6 @@ class _DetailsPageState extends State<DetailsPage> {
   @override
   void initState() {
     _controller = TextEditingController(text: this.widget.id);
-    print(_controller.text);
     super.initState();
   }
 
