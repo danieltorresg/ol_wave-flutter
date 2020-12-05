@@ -189,6 +189,18 @@ class _InitialPageState extends State<InitialPage> {
                             },
                           ),
                           RaisedButton(
+                            child: const Text('Televisores'),
+                            color: purpleMainColor,
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      Search(search: 'televisor'),
+                                ),
+                              );
+                            },
+                          ),
+                          RaisedButton(
                             child: const Text('Hornos'),
                             color: purpleMainColor,
                             onPressed: () {
