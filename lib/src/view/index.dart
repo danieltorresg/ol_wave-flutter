@@ -156,7 +156,7 @@ class _InitialPageState extends State<InitialPage> {
                     children: <Widget>[
                       const ListTile(
                         leading: Icon(Icons.tv, size: 60),
-                        title: Text('Electrodomesticos',
+                        title: Text('Electrodomésticos',
                             style: TextStyle(
                               fontSize: 30.0,
                               color: purpleMainColor,
@@ -247,7 +247,7 @@ class _InitialPageState extends State<InitialPage> {
                             },
                           ),
                           RaisedButton(
-                            child: const Text('Audifonos'),
+                            child: const Text('Audífonos'),
                             color: purpleMainColor,
                             onPressed: () {
                               Navigator.of(context).push(
@@ -285,7 +285,7 @@ class _InitialPageState extends State<InitialPage> {
                     children: <Widget>[
                       const ListTile(
                         leading: Icon(Icons.motorcycle, size: 60),
-                        title: Text('Vehiculos',
+                        title: Text('Vehículos',
                             style: TextStyle(
                               fontSize: 30.0,
                               color: purpleMainColor,
