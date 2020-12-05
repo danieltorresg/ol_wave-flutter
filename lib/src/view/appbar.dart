@@ -40,7 +40,7 @@ class AppBarApp extends StatelessWidget implements PreferredSizeWidget {
         ),
         IconButton(
           icon: Icon(Icons.shopping_cart),
-          color: blueComplementaryColor,
+          color: purpleComplementaryColor,
           onPressed: () {
             print('Click start');
           },
