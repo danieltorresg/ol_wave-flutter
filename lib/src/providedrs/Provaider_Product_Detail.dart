@@ -6,8 +6,8 @@ import '../model/Model_product_detail.dart';
 
 class DetailsProvider {
   Future getProduct(String idProduct) async {
-    final url =
-        "http://blackstorenetcore.eba-py2kgy33.us-east-1.elasticbeanstalk.com/api/item/$idProduct";
+    print(idProduct);
+    final url = "http://production.eba-2veq4gdy.us-west-2.elasticbeanstalk.com/django_api/item/$idProduct";
 
     final resp = await http.get(url);
 

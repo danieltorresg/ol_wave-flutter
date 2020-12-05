@@ -57,7 +57,7 @@ class ProductDetail {
         name: json["name"],
         brand: json["brand"],
         thumbnail: json["thumbnail"],
-        pictures: List<String>.from(json["pictures"].map((x) => x)),
+        //pictures: List<String>.from(json["pictures"].map((x) => x)),
         city: City.fromJson(json["city"]),
         seller: Seller.fromJson(json["seller"]),
         description: json["description"],
@@ -71,7 +71,7 @@ class ProductDetail {
         "name": name,
         "brand": brand,
         "thumbnail": thumbnail,
-        "pictures": List<dynamic>.from(pictures.map((x) => x)),
+        //"pictures": List<dynamic>.from(pictures.map((x) => x)),
         "city": city.toJson(),
         "seller": seller.toJson(),
         "description": description,
@@ -113,7 +113,7 @@ class Seller {
   String logo;
 
   factory Seller.fromJson(Map<String, dynamic> json) => Seller(
-        id: json["id"],
+        id: json["id"].toString(),
         name: json["name"],
         logo: json["logo"],
       );

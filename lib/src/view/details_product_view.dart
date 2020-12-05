@@ -70,11 +70,8 @@ class _DetailsPageState extends State<DetailsPage> {
       future: detailsProvider.getProduct(_controller.text),
       builder: (context, AsyncSnapshot<dynamic> snapshot) {
         if (snapshot.hasData) {
-          final products = snapshot.data;
-
-          print(products);
-
-          return Text('products');
+          final product = snapshot.data;
+          return detailsWidget(product);
         } else {
           return Center(
             child: CircularProgressIndicator(),
@@ -152,216 +149,204 @@ class _DetailsPageState extends State<DetailsPage> {
                   ),
                   decoration: BoxDecoration(color: purpleMainColor),
                 ),
-                Column(
-                  children: <Widget>[
-                    productDetailWidget(),
-                    Container(
-                        child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                          Center(
-                            child: Stack(
-                              children: <Widget>[
-                                Container(
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(25.0),
-                                      image: DecorationImage(
-                                          image: AssetImage(photos[
-                                              photoIndex]), //Reemplazar imagen
-                                          fit: BoxFit.cover)),
-                                  height: 400.0,
-                                  width: 300.0,
-                                ),
-                                Positioned(
-                                  top: 375.0,
-                                  left: 25.0,
-                                  right: 25.0,
-                                  child: SelectedPhoto(
-                                      numberOfDots: photos.length,
-                                      photoIndex: photoIndex),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                RaisedButton(
-                                  child: Text('Previous'),
-                                  onPressed: _previousImage,
-                                  elevation: 5.0,
-                                  color: purpleComplementaryColor,
-                                ),
-                                SizedBox(width: 10.0),
-                                RaisedButton(
-                                  child: Text('Next'),
-                                  onPressed: _nextImage,
-                                  elevation: 5.0,
-                                  color: purpleComplementaryColor,
-                                ),
-                              ]),
-                          SizedBox(height: 15.0),
-                          Container(
-                            padding: EdgeInsets.all(20.0),
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: <Widget>[
-                                  Container(
-                                    padding: EdgeInsets.all(20.0),
-                                    child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: <Widget>[
-                                          Text(
-                                            '${valueAux['name']}', //Reemplazar descripción producto
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                                color: Colors.black,
-                                                fontFamily: 'Montserrat',
-                                                fontSize: 27,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                        ]),
-                                  ),
-                                ]),
-                          ),
-                          SizedBox(height: 15.0),
-                          Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Text(
-                                  '${valueAux['brand']}', //Reemplazar marca producto
-                                  style: TextStyle(
-                                    color: Colors.black38,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                SizedBox(width: 30.0),
-                                Icon(Icons.location_on,
-                                    color: blueComplementaryColor),
-                                SizedBox(
-                                  width: 5.0,
-                                ),
-                                Text(
-                                  'Medellín', //Reemplazar nombre ciudad
-                                  style: TextStyle(
-                                    color: blueComplementaryColor,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                )
-                              ]),
-                          SizedBox(height: 15.0),
-                          Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Text(
-                                  'Éxito', //Reemplazar nombre vendedor
-                                  style: TextStyle(
-                                    color: Colors.black38,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                SizedBox(width: 30.0),
-                                Icon(Icons.attach_money,
-                                    color: blueComplementaryColor),
-                                SizedBox(
-                                  width: 5.0,
-                                ),
-                                Text(
-                                  '${valueAux['price']}', //Reemplazar precio producto
-                                  style: TextStyle(
-                                    color: blueComplementaryColor,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 2.0,
-                                ),
-                                Text(
-                                  '${valueAux['currency']}', //Reemplazar currency
-                                  style: TextStyle(
-                                    color: blueComplementaryColor,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                )
-                              ]),
-                          SizedBox(height: 15.0),
-                          Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Icon(Icons.star, color: blueComplementaryColor),
-                                SizedBox(
-                                  width: 5.0,
-                                ),
-                                Text(
-                                  '${valueAux['rating']}', //Reemplazar rating
-                                  style: TextStyle(
-                                    color: Colors.black38,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                )
-                              ]),
-                          SizedBox(height: 15.0),
-                          Container(
-                            padding: EdgeInsets.all(20.0),
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: <Widget>[
-                                  Text(
-                                    '${valueAux['description']}', //Reemplazar descripción producto
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontFamily: 'Montserrat',
-                                        fontSize: 18),
-                                  ),
-                                ]),
-                          ),
-                          SizedBox(
-                            height: 15.0,
-                          ),
-                          Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Icon(Icons.shopping_cart,
-                                    color: purpleComplementaryColor),
-                                SizedBox(
-                                  width: 5.0,
-                                ),
-                                RaisedButton(
-                                  child: Text(
-                                    'Agregar al carrito',
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontFamily: 'Montserrat',
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 15),
-                                  ),
-                                  elevation: 5,
-                                  color: purpleComplementaryColor,
-                                  onPressed: () {
-                                    print('Click start');
-                                  },
-                                ),
-                              ]),
-                        ])),
-                  ],
-                ),
+                productDetailWidget(),
               ],
 
               // mainAxisAlignment: MainAxisAlignment.spaceBetween,
             ),
           ),
         ));
+  }
+
+  Widget detailsWidget(productDetail) {
+    return Column(
+      children: <Widget>[
+        Container(
+            child:
+                Column(mainAxisAlignment: MainAxisAlignment.center, children: <
+                    Widget>[
+          Center(
+            child: Stack(
+              children: <Widget>[
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(25.0),
+                      image: DecorationImage(
+                          image: AssetImage(
+                              photos[photoIndex]), //Reemplazar imagen
+                          fit: BoxFit.cover)),
+                  height: 400.0,
+                  width: 300.0,
+                ),
+                Positioned(
+                  top: 375.0,
+                  left: 25.0,
+                  right: 25.0,
+                  child: SelectedPhoto(
+                      numberOfDots: photos.length, photoIndex: photoIndex),
+                ),
+              ],
+            ),
+          ),
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+            SizedBox(
+              height: 20,
+            ),
+            RaisedButton(
+              child: Text('Previous'),
+              onPressed: _previousImage,
+              elevation: 5.0,
+              color: purpleComplementaryColor,
+            ),
+            SizedBox(width: 10.0),
+            RaisedButton(
+              child: Text('Next'),
+              onPressed: _nextImage,
+              elevation: 5.0,
+              color: purpleComplementaryColor,
+            ),
+          ]),
+          SizedBox(height: 15.0),
+          Container(
+            padding: EdgeInsets.all(20.0),
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    padding: EdgeInsets.all(20.0),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            productDetail.name, //Reemplazar descripción producto
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontFamily: 'Montserrat',
+                                fontSize: 27,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ]),
+                  ),
+                ]),
+          ),
+          SizedBox(height: 15.0),
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+            Text(
+              productDetail.brand, //Reemplazar marca producto
+              style: TextStyle(
+                color: Colors.black38,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(width: 30.0),
+            Icon(Icons.location_on, color: blueComplementaryColor),
+            SizedBox(
+              width: 5.0,
+            ),
+            Text(
+              productDetail.city.name, //Reemplazar nombre ciudad
+              style: TextStyle(
+                color: blueComplementaryColor,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            )
+          ]),
+          SizedBox(height: 15.0),
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+            Text(
+              productDetail.seller.name, //Reemplazar nombre vendedor
+              style: TextStyle(
+                color: Colors.black38,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(width: 30.0),
+            Icon(Icons.attach_money, color: blueComplementaryColor),
+            SizedBox(
+              width: 5.0,
+            ),
+            Text(
+              productDetail.price.toString(), //Reemplazar precio producto
+              style: TextStyle(
+                color: blueComplementaryColor,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(
+              width: 2.0,
+            ),
+            Text(
+              productDetail.currency, //Reemplazar currency
+              style: TextStyle(
+                color: blueComplementaryColor,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            )
+          ]),
+          SizedBox(height: 15.0),
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+            Icon(Icons.star, color: blueComplementaryColor),
+            SizedBox(
+              width: 5.0,
+            ),
+            Text(
+              productDetail.rating.toString(), //Reemplazar rating
+              style: TextStyle(
+                color: Colors.black38,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            )
+          ]),
+          SizedBox(height: 15.0),
+          Container(
+            padding: EdgeInsets.all(20.0),
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    productDetail.description, //Reemplazar descripción producto
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'Montserrat',
+                        fontSize: 18),
+                  ),
+                ]),
+          ),
+          SizedBox(
+            height: 15.0,
+          ),
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+            Icon(Icons.shopping_cart, color: purpleComplementaryColor),
+            SizedBox(
+              width: 5.0,
+            ),
+            RaisedButton(
+              child: Text(
+                'Agregar al carrito',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15),
+              ),
+              elevation: 5,
+              color: purpleComplementaryColor,
+              onPressed: () {
+                print('Click start');
+              },
+            ),
+          ]),
+        ])),
+      ],
+    );
   }
 }
 
