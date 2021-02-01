@@ -13,6 +13,8 @@ class DetailsProvider {
     final urlNode =
         "https://yurgqjbmwb.execute-api.us-east-2.amazonaws.com/dev/api/item/$idProduct";
 
+        
+
     final respDjango = await http.get(urlDjango);
     final respNet = await http.get(urlNet);
     final respNode = await http.get(urlNode);
