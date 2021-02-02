@@ -84,7 +84,7 @@ class _DetailsPageState extends State<DetailsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(        
+    return Scaffold(
         appBar: AppBarApp(
           appBar: AppBar(),
         ),
@@ -162,11 +162,12 @@ class _DetailsPageState extends State<DetailsPage> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           Text(
-                            productDetail.name, //Reemplazar descripción producto
+                            productDetail
+                                .name, //Reemplazar descripción producto
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 color: Colors.black,
-                                fontFamily: 'Montserrat',
+                                fontFamily: 'Monserrat',
                                 fontSize: 27,
                                 fontWeight: FontWeight.bold),
                           ),
@@ -179,6 +180,7 @@ class _DetailsPageState extends State<DetailsPage> {
             Text(
               productDetail.brand, //Reemplazar marca producto
               style: TextStyle(
+                fontFamily: 'Monserrat',
                 color: Colors.black38,
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -192,6 +194,7 @@ class _DetailsPageState extends State<DetailsPage> {
             Text(
               productDetail.city.name, //Reemplazar nombre ciudad
               style: TextStyle(
+                fontFamily: 'Monserrat',
                 color: blueComplementaryColor,
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -203,6 +206,7 @@ class _DetailsPageState extends State<DetailsPage> {
             Text(
               productDetail.seller.name, //Reemplazar nombre vendedor
               style: TextStyle(
+                fontFamily: 'Monserrat',
                 color: Colors.black38,
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -216,6 +220,7 @@ class _DetailsPageState extends State<DetailsPage> {
             Text(
               productDetail.price.toString(), //Reemplazar precio producto
               style: TextStyle(
+                fontFamily: 'Monserrat',
                 color: blueComplementaryColor,
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -227,6 +232,7 @@ class _DetailsPageState extends State<DetailsPage> {
             Text(
               productDetail.currency, //Reemplazar currency
               style: TextStyle(
+                fontFamily: 'Monserrat',
                 color: blueComplementaryColor,
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -242,6 +248,7 @@ class _DetailsPageState extends State<DetailsPage> {
             Text(
               productDetail.rating.toString(), //Reemplazar rating
               style: TextStyle(
+                fontFamily: 'Monserrat',
                 color: Colors.black38,
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -259,7 +266,7 @@ class _DetailsPageState extends State<DetailsPage> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Colors.black,
-                        fontFamily: 'Montserrat',
+                        fontFamily: 'Monserrat',
                         fontSize: 18),
                   ),
                 ]),
@@ -277,7 +284,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 'Agregar al carrito',
                 style: TextStyle(
                     color: Colors.black,
-                    fontFamily: 'Montserrat',
+                    fontFamily: 'Monserrat',
                     fontWeight: FontWeight.bold,
                     fontSize: 15),
               ),

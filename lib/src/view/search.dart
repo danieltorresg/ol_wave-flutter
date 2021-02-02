@@ -31,8 +31,9 @@ class _SearchState extends State<Search> {
         if (snapshot.hasData) {
           final products = snapshot.data;
           if (products.length == 0) {
-            return Center(child: Text("No hay productos"),);
-
+            return Center(
+              child: Text("No hay productos"),
+            );
           }
           return showProducts(products);
         } else {
@@ -94,6 +95,7 @@ class _SearchState extends State<Search> {
           Text('${data.brand}',
               textAlign: TextAlign.left,
               style: TextStyle(
+                  fontFamily: 'Monserrat',
                   color: Colors.grey,
                   fontSize: 15,
                   fontWeight: FontWeight.bold)),
@@ -123,13 +125,17 @@ class _SearchState extends State<Search> {
         text: TextSpan(
           text: '${data.price}',
           style: TextStyle(
+              fontFamily: 'Monserrat',
               fontWeight: FontWeight.bold,
               color: purpleMainColor,
               fontSize: 20),
           children: <TextSpan>[
             TextSpan(
                 text: '\n${data.currency}',
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+                style: TextStyle(
+                    fontFamily: 'Monserrat',
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold)),
           ],
         ),
       ),
@@ -148,6 +154,7 @@ class _SearchState extends State<Search> {
             TextSpan(
                 text: '\n${data.rating}',
                 style: TextStyle(
+                    fontFamily: 'Monserrat',
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: Colors.green)),

@@ -20,11 +20,13 @@ class _SearchBar extends State<SearchBar> {
         child: TextField(
           onSubmitted: (value) => {
             Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => Search(search: value,)
-            ))
+                builder: (context) => Search(
+                      search: value,
+                    )))
           },
           cursorColor: Colors.grey,
-          style: TextStyle(fontSize: 16.0, color: Colors.black),
+          style: TextStyle(
+              fontFamily: 'Monserrat', fontSize: 16.0, color: Colors.black),
           decoration: InputDecoration(
             prefixIcon: Icon(
               Icons.search,
@@ -33,7 +35,8 @@ class _SearchBar extends State<SearchBar> {
             ),
             border: InputBorder.none,
             hintText: "Search Products",
-            hintStyle: TextStyle(color: Colors.grey, fontSize: 14.0),
+            hintStyle: TextStyle(
+                fontFamily: 'Monserrat', color: Colors.grey, fontSize: 14.0),
           ),
         ),
       ),

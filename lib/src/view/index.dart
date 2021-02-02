@@ -32,6 +32,7 @@ class _InitialPageState extends State<InitialPage> {
                   textScaleFactor: 1.5,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
+                    fontFamily: 'Monserrat',
                     fontWeight: FontWeight.w500,
                     color: purpleMainColor,
                   ),
@@ -45,12 +46,21 @@ class _InitialPageState extends State<InitialPage> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      const ListTile(
-                        leading: Icon(Icons.computer, size: 60),
+                      ListTile(
+                        leading: SizedBox(
+                          height: 70,
+                          width: 70,
+                          child: Image.asset(
+                            'assets/iconocomputador.png',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                         title: Text(
                           'Computación',
                           style: TextStyle(
-                            fontSize: 30.0,
+                            fontFamily: 'Monserrat',
+                            fontSize: 25.0,
+                            fontWeight: FontWeight.bold,
                             color: purpleMainColor,
                           ),
                         ),
@@ -106,11 +116,20 @@ class _InitialPageState extends State<InitialPage> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      const ListTile(
-                        leading: Icon(Icons.phone_android, size: 60),
+                      ListTile(
+                        leading: SizedBox(
+                          height: 60,
+                          width: 55,
+                          child: Image.asset(
+                            'assets/iconocelular.png',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                         title: Text('Celulares',
                             style: TextStyle(
-                              fontSize: 30.0,
+                              fontFamily: 'Monserrat',
+                              fontSize: 25.0,
+                              fontWeight: FontWeight.bold,
                               color: purpleMainColor,
                             )),
                       ),
@@ -154,11 +173,20 @@ class _InitialPageState extends State<InitialPage> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      const ListTile(
-                        leading: Icon(Icons.tv, size: 60),
+                      ListTile(
+                        leading: SizedBox(
+                          height: 70,
+                          width: 70,
+                          child: Image.asset(
+                            'assets/iconoelectro.png',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                         title: Text('Electrodomésticos',
                             style: TextStyle(
-                              fontSize: 30.0,
+                              fontFamily: 'Monserrat',
+                              fontSize: 25.0,
+                              fontWeight: FontWeight.bold,
                               color: purpleMainColor,
                             )),
                       ),
@@ -225,11 +253,20 @@ class _InitialPageState extends State<InitialPage> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      const ListTile(
-                        leading: Icon(Icons.headset, size: 60),
+                      ListTile(
+                        leading: SizedBox(
+                          height: 40,
+                          width: 30,
+                          child: Image.asset(
+                            'assets/iconoaccesorio.png',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                         title: Text('Accesorios',
                             style: TextStyle(
-                              fontSize: 30.0,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Monserrat',
+                              fontSize: 25.0,
                               color: purpleMainColor,
                             )),
                       ),
@@ -283,11 +320,20 @@ class _InitialPageState extends State<InitialPage> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      const ListTile(
-                        leading: Icon(Icons.motorcycle, size: 60),
+                      ListTile(
+                        leading: SizedBox(
+                          height: 70,
+                          width: 70,
+                          child: Image.asset(
+                            'assets/iconomoto.png',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                         title: Text('Vehículos',
                             style: TextStyle(
-                              fontSize: 30.0,
+                              fontFamily: 'Monserrat',
+                              fontWeight: FontWeight.bold,
+                              fontSize: 25.0,
                               color: purpleMainColor,
                             )),
                       ),
