@@ -54,9 +54,9 @@ class _DetailsPageState extends State<DetailsPage> {
     });
   }
 
-  void _nextImage() {
+  void _nextImage(List<String> photosList) {
     setState(() {
-      photoIndex = photoIndex < photos.length - 1 ? photoIndex + 1 : photoIndex;
+      photoIndex = photoIndex < photosList.length - 1 ? photoIndex + 1 : photoIndex;
     });
   }
 
@@ -115,8 +115,8 @@ class _DetailsPageState extends State<DetailsPage> {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25.0),
                       image: DecorationImage(
-                          image: AssetImage(
-                              photos[photoIndex]), //Reemplazar imagen
+                          image: NetworkImage(
+                              productDetail["pictures"][photoIndex]), //Reemplazar imagen
                           fit: BoxFit.cover)),
                   height: 400.0,
                   width: 300.0,
@@ -126,7 +126,7 @@ class _DetailsPageState extends State<DetailsPage> {
                   left: 25.0,
                   right: 25.0,
                   child: SelectedPhoto(
-                      numberOfDots: photos.length, photoIndex: photoIndex),
+                      numberOfDots: productDetail["pictures"].length, photoIndex: photoIndex),
                 ),
               ],
             ),
@@ -144,7 +144,7 @@ class _DetailsPageState extends State<DetailsPage> {
             SizedBox(width: 10.0),
             RaisedButton(
               child: Text('Next'),
-              onPressed: _nextImage,
+              onPressed: () => _nextImage(productDetail["pictures"]),
               elevation: 5.0,
               color: purpleComplementaryColor,
             ),
