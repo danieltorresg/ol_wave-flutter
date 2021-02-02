@@ -60,6 +60,26 @@ class _DetailsPageState extends State<DetailsPage> {
     });
   }
 
+  createAlertDialog(BuildContext contex){
+    return showDialog(context: contex, builder: (context) {
+      return AlertDialog(
+        title: Text("Carrito"),
+        content: Text("Producto agregado al carrito"),
+        actions: <Widget>[
+          MaterialButton(
+            elevation: 5.0,
+            child: Text("Aceptar"),
+            onPressed: (){
+              Navigator.of(context).pop();
+
+            },)
+        ],
+      );
+
+    });
+
+  }
+
   @override
   void initState() {
     _controller = TextEditingController(text: this.widget.id);
@@ -284,6 +304,7 @@ class _DetailsPageState extends State<DetailsPage> {
               color: purpleComplementaryColor,
               onPressed: () {
                 print('Click start');
+                createAlertDialog(context);
               },
             ),
           ]),

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:old_wave_flutter/src/constants/constants.dart';
 import 'package:old_wave_flutter/src/model/Model_search_product.dart';
-import 'package:old_wave_flutter/src/providedrs/Provider_Product.dart';
 import 'package:old_wave_flutter/src/view/appbar.dart';
+import 'package:old_wave_flutter/src/view/details_product_view.dart';
 import 'package:old_wave_flutter/src/view/searchBar.dart';
 
 class Cart extends StatefulWidget {
@@ -14,7 +14,6 @@ class Cart extends StatefulWidget {
 }
 
 class _CartState extends State<Cart> {
-  ProductosProvider provider = ProductosProvider();
   var productList = [
     {
       "id": "MCO566836190",
@@ -53,7 +52,7 @@ class _CartState extends State<Cart> {
 
   Widget productsWidget() {
     return FutureBuilder(
-      future: provider.getProduct_net_default(productList),
+      future: getProduct_net_default(),
       builder: (context, AsyncSnapshot<List> snapshot) {
         if (snapshot.hasData) {
           final products = snapshot.data;
@@ -198,14 +197,13 @@ class _CartState extends State<Cart> {
                 elevation: 5,
                 child: InkWell(
                   onTap: () => {
-                    /* print("Abriendo producto" + productsData[index].id),
                     Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => DetailsPage(
                         id: productsData[index].id,
                       ),
-                    )) */
+                    )),
                     print(productList),
-                    productList.add({
+                    /* productList.add({
                       "id": "MCO566836191",
                       "name": "Neverazo",
                       "brand": "Oster",
@@ -215,7 +213,7 @@ class _CartState extends State<Cart> {
                       "price": 0.0,
                       "currency": "COP",
                       "rating": 0.0,
-                    })
+                    }) */
                   },
                   child: Container(
                     child: Padding(
@@ -269,5 +267,32 @@ class _CartState extends State<Cart> {
             );
           }),
     );
+  }
+
+  Future<List<Item>> getProduct_net_default() async {
+    List<Item> cartList = new List();
+    var productList = [
+      {
+        "id": "MCO566836190",
+        "name": "Televisor",
+        "brand": "Samsung",
+        "thumbnail":
+            "http://mco-s1-p.mlstatic.com/658727-MCO42366015634_062020-I.jpg",
+        "city": {"name": "Bogotá D.C", "code": "CO-DC"},
+        "price": 1929000,
+        "currency": "COP",
+        "rating": 3.0,
+      },
+    ];
+
+    for (var item in productList) {
+      //map de json to dart object
+      final product = Item.fromJson(item);
+
+      //add product to list cartList
+      cartList.add(product);
+    }
+
+    return cartList;
   }
 }
