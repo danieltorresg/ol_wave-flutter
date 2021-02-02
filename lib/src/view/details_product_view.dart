@@ -189,7 +189,7 @@ class _DetailsPageState extends State<DetailsPage> {
               width: 5.0,
             ),
             Text(
-              "productDetail.city.name", //Reemplazar nombre ciudad
+              productDetail["city"]["name"], //Reemplazar nombre ciudad
               style: TextStyle(
                 color: blueComplementaryColor,
                 fontSize: 18,
@@ -200,7 +200,7 @@ class _DetailsPageState extends State<DetailsPage> {
           SizedBox(height: 15.0),
           Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
             Text(
-              "productDetail.seller.name", //Reemplazar nombre vendedor
+              productDetail["seller"]["name"], //Reemplazar nombre vendedor
               style: TextStyle(
                 color: Colors.black38,
                 fontSize: 18,
