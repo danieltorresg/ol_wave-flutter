@@ -87,3 +87,22 @@ class ProductosProvider {
     return cartList;
   }
 }
+
+class Post {
+  dynamic data;
+  Post.fromJson(this.data);
+}
+
+Future<Post> fetchProductosProvider(http.Client client) async {
+  final itemToSearch = 'tv';
+  final response = await client.get(
+      'https://yurgqjbmwb.execute-api.us-east-2.amazonaws.com/dev/api/search/?q=$itemToSearch');
+
+  if (response.statusCode == 200) {
+    // If the call to the server was successful, parse the JSON.
+    return Post.fromJson(jsonDecode(response.body));
+  } else {
+    // If that call was not successful, throw an error.
+    throw Exception('Failed to load post');
+  }
+}
