@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:old_wave_flutter/src/constants/constants.dart';
+import 'package:old_wave_flutter/src/view/cart.dart';
 import 'package:old_wave_flutter/src/view/index.dart';
 
 class AppBarApp extends StatelessWidget implements PreferredSizeWidget {
@@ -42,7 +43,9 @@ class AppBarApp extends StatelessWidget implements PreferredSizeWidget {
           icon: Icon(Icons.shopping_cart),
           color: purpleComplementaryColor,
           onPressed: () {
-            print('Click Cart');
+            Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => Cart(),
+                    ));
           },
         ),
       ],
