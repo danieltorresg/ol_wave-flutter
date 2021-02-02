@@ -14,28 +14,6 @@ class Cart extends StatefulWidget {
 }
 
 class _CartState extends State<Cart> {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBarApp(
-          appBar: AppBar(),
-        ),
-        body: Container(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              SearchBar(),
-              Text("data"),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-/* 
   ProductosProvider provider = ProductosProvider();
   var productList = [
     {
@@ -291,5 +269,5 @@ class _CartState extends State<Cart> {
             );
           }),
     );
-  } */
+  }
 }
