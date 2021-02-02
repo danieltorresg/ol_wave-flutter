@@ -30,40 +30,52 @@ class ProductosProvider {
   Future<List<Item>> getProduct_net_default() async {
     List<Item> cartList = new List();
     var productList = [
-    {
-      "id": "MCO566836190",
-      "name": "Nevera",
-      "brand": "Oster",
-      "thumbnail":
-          "https://www.lg.com/co/images/neveras/md06059016/thumbnail/350_1_new.jpg",
-      "city": {"name": "Medellin", "code": "MED"},
-      "price": 0.0,
-      "currency": "COP",
-      "rating": 0.0,
-    },
-    {
-      "id": "MCO566836191",
-      "name": "Olla",
-      "brand": "Oster",
-      "thumbnail":
-          "https://static.interbankbenefit.pe/public/web/images/producto/ficha-tecnica/68920-ficha-tecnica.png",
-      "city": {"name": "Medellin", "code": "MED"},
-      "price": 0.0,
-      "currency": "COP",
-      "rating": 0.0,
-    },
-    {
-      "id": "MCO566836192",
-      "name": "Estufa",
-      "brand": "Oster",
-      "thumbnail":
-          "https://e39a9f00db6c5bc097f9-75bc5dce1d64f93372e7c97ed35869cb.ssl.cf1.rackcdn.com/img-RZEiufB5.jpg",
-      "city": {"name": "Medellin", "code": "MED"},
-      "price": 0.0,
-      "currency": "COP",
-      "rating": 0.0,
-    },
-  ];
+      {
+        "id": "MCO566836190",
+        "name": "Nevera",
+        "brand": "Oster",
+        "thumbnail":
+            "https://www.lg.com/co/images/neveras/md06059016/thumbnail/350_1_new.jpg",
+        "city": {"name": "Medellin", "code": "MED"},
+        "price": 0.0,
+        "currency": "COP",
+        "rating": 0.0,
+      },
+      {
+        "id": "MCO566836191",
+        "name": "Olla",
+        "brand": "Oster",
+        "thumbnail":
+            "https://static.interbankbenefit.pe/public/web/images/producto/ficha-tecnica/68920-ficha-tecnica.png",
+        "city": {"name": "Medellin", "code": "MED"},
+        "price": 0.0,
+        "currency": "COP",
+        "rating": 0.0,
+      },
+      {
+        "id": "MCO566836192",
+        "name": "Estufa",
+        "brand": "Oster",
+        "thumbnail":
+            "https://e39a9f00db6c5bc097f9-75bc5dce1d64f93372e7c97ed35869cb.ssl.cf1.rackcdn.com/img-RZEiufB5.jpg",
+        "city": {"name": "Medellin", "code": "MED"},
+        "price": 0.0,
+        "currency": "COP",
+        "rating": 0.0,
+      },
+      {
+        "id": "MCO566836190",
+        "name":
+            "Televisor samsung 58 pulgadas 147 cm 58tu8000 led 4k uhd crystal",
+        "brand": "Samsung",
+        "thumbnail":
+            "http://mco-s1-p.mlstatic.com/658727-MCO42366015634_062020-I.jpg",
+        "city": {"name": "Bogotá D.C", "code": "CO-DC"},
+        "price": 1819900,
+        "currency": "COP",
+        "rating": 3.0,
+      },
+    ];
 
     for (var item in productList) {
       //map de json to dart object
