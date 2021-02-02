@@ -122,6 +122,44 @@ class _SearchState extends State<Search> {
     );
   }
 
+  Widget productCity(data) {
+    return Container(
+      padding: EdgeInsets.all(1),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            "Ciudad",
+            textAlign: TextAlign.left,
+            style: TextStyle(
+                color: Colors.grey, fontSize: 15, fontWeight: FontWeight.bold),
+          ),
+          Text(
+            '${data.city.name}',
+            textAlign: TextAlign.left,
+            style: TextStyle(
+                
+                fontWeight: FontWeight.bold, color: Colors.black, fontSize: 20),
+          ),
+        ],
+      ),
+
+      /* text: TextSpan(
+          text: '${data.name}',
+          style: TextStyle(
+              fontWeight: FontWeight.bold, color: Colors.black, fontSize: 20),
+          children: <TextSpan>[
+            TextSpan(
+                text: '${data.brand}',
+                style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold)),
+          ],
+        ), */
+    );
+  }
+
   Widget productChange(data) {
     return Align(
       alignment: Alignment.topRight,
@@ -156,7 +194,7 @@ class _SearchState extends State<Search> {
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Colors.green)),
+                    color: blueMainColor)),
           ],
         ),
       ),
@@ -205,6 +243,11 @@ class _SearchState extends State<Search> {
                                             height: 10,
                                           ),
                                           productName(productsData[index]),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          Spacer(),
+                                          productCity(productsData[index]),
                                           Spacer(),
                                         ],
                                       ),
