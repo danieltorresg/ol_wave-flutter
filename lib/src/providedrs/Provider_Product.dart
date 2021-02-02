@@ -96,7 +96,7 @@ class Post {
 Future<Post> fetchProductosProvider(http.Client client) async {
   final itemToSearch = 'tv';
   final response = await client.get(
-      'https://yurgqjbmwb.execute-api.us-east-2.amazonaws.com/dev/api/search/?q=$itemToSearch');
+      'http://development.eba-2veq4gdy.us-west-2.elasticbeanstalk.com/django_api/search/?q=$itemToSearch');
 
   if (response.statusCode == 200) {
     // If the call to the server was successful, parse the JSON.

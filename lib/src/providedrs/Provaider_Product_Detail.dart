@@ -37,8 +37,7 @@ class DetailsProvider {
   Future getProduct_default() async {
     var valueAux = {
       "id": "MCO566836190",
-      "name":
-          "TV Samsung 58 pulgadas (147 cm) 4K Crystal UHD Smart TV",
+      "name": "TV Samsung 58 pulgadas (147 cm) 4K Crystal UHD Smart TV",
       "brand": "Samsung",
       "thumbnail":
           "http://mco-s1-p.mlstatic.com/658727-MCO42366015634_062020-I.jpg",
@@ -61,5 +60,24 @@ class DetailsProvider {
       "rating": 4,
     };
     return valueAux;
+  }
+}
+
+class PostD {
+  dynamic data;
+  PostD.fromJson(this.data);
+}
+
+Future<PostD> fetchProductDetailProvider(http.Client client) async {
+  final idProduct = '1';
+  final response = await client.get(
+      'https://yurgqjbmwb.execute-api.us-east-2.amazonaws.com/dev/api/item/$idProduct');
+
+  if (response.statusCode == 200) {
+    // If the call to the server was successful, parse the JSON.
+    return PostD.fromJson(jsonDecode(response.body));
+  } else {
+    // If that call was not successful, throw an error.
+    throw Exception('Failed to load post');
   }
 }
