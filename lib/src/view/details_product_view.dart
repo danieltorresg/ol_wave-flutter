@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:old_wave_flutter/src/constants/constants.dart';
 import 'package:old_wave_flutter/src/providedrs/Provaider_Product_Detail.dart';
-import 'package:old_wave_flutter/src/providedrs/Provider_Product.dart';
 import 'package:old_wave_flutter/src/view/appbar.dart';
 import 'package:old_wave_flutter/src/view/searchBar.dart';
 
@@ -38,6 +37,7 @@ class _DetailsPageState extends State<DetailsPage> {
     "currency": "COP",
     "rating": 3,
   };
+  
 
   TextEditingController _controller;
   int photoIndex = 0;
@@ -68,7 +68,8 @@ class _DetailsPageState extends State<DetailsPage> {
 
   Widget productDetailWidget() {
     return FutureBuilder(
-      future: detailsProvider.getProduct(_controller.text),
+      //future: detailsProvider.getProduct(_controller.text)
+      future: detailsProvider.getProduct_default(),
       builder: (context, AsyncSnapshot<dynamic> snapshot) {
         if (snapshot.hasData) {
           final product = snapshot.data;
@@ -106,9 +107,7 @@ class _DetailsPageState extends State<DetailsPage> {
     return Column(
       children: <Widget>[
         Container(
-            child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: <
-                    Widget>[
+            child:Column(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
           Center(
             child: Stack(
               children: <Widget>[
@@ -131,7 +130,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 ),
               ],
             ),
-          ),
+          ), 
           Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
             SizedBox(
               height: 20,
@@ -162,12 +161,11 @@ class _DetailsPageState extends State<DetailsPage> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           Text(
-                            productDetail
-                                .name, //Reemplazar descripción producto
+                            productDetail["name"], //Reemplazar descripción producto
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 color: Colors.black,
-                                fontFamily: 'Monserrat',
+                                fontFamily: 'Montserrat',
                                 fontSize: 27,
                                 fontWeight: FontWeight.bold),
                           ),
@@ -178,9 +176,8 @@ class _DetailsPageState extends State<DetailsPage> {
           SizedBox(height: 15.0),
           Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
             Text(
-              productDetail.brand, //Reemplazar marca producto
+              productDetail["brand"], //Reemplazar marca producto
               style: TextStyle(
-                fontFamily: 'Monserrat',
                 color: Colors.black38,
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -192,9 +189,8 @@ class _DetailsPageState extends State<DetailsPage> {
               width: 5.0,
             ),
             Text(
-              productDetail.city.name, //Reemplazar nombre ciudad
+              "productDetail.city.name", //Reemplazar nombre ciudad
               style: TextStyle(
-                fontFamily: 'Monserrat',
                 color: blueComplementaryColor,
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -204,9 +200,8 @@ class _DetailsPageState extends State<DetailsPage> {
           SizedBox(height: 15.0),
           Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
             Text(
-              productDetail.seller.name, //Reemplazar nombre vendedor
+              "productDetail.seller.name", //Reemplazar nombre vendedor
               style: TextStyle(
-                fontFamily: 'Monserrat',
                 color: Colors.black38,
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -218,9 +213,8 @@ class _DetailsPageState extends State<DetailsPage> {
               width: 5.0,
             ),
             Text(
-              productDetail.price.toString(), //Reemplazar precio producto
+              productDetail["price"].toString(), //Reemplazar precio producto
               style: TextStyle(
-                fontFamily: 'Monserrat',
                 color: blueComplementaryColor,
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -230,9 +224,8 @@ class _DetailsPageState extends State<DetailsPage> {
               width: 2.0,
             ),
             Text(
-              productDetail.currency, //Reemplazar currency
+              productDetail["currency"], //Reemplazar currency
               style: TextStyle(
-                fontFamily: 'Monserrat',
                 color: blueComplementaryColor,
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -246,9 +239,8 @@ class _DetailsPageState extends State<DetailsPage> {
               width: 5.0,
             ),
             Text(
-              productDetail.rating.toString(), //Reemplazar rating
+              productDetail["rating"].toString(), //Reemplazar rating
               style: TextStyle(
-                fontFamily: 'Monserrat',
                 color: Colors.black38,
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -262,11 +254,11 @@ class _DetailsPageState extends State<DetailsPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    productDetail.description, //Reemplazar descripción producto
+                    productDetail["description"], //Reemplazar descripción producto
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Colors.black,
-                        fontFamily: 'Monserrat',
+                        fontFamily: 'Montserrat',
                         fontSize: 18),
                   ),
                 ]),
@@ -284,7 +276,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 'Agregar al carrito',
                 style: TextStyle(
                     color: Colors.black,
-                    fontFamily: 'Monserrat',
+                    fontFamily: 'Montserrat',
                     fontWeight: FontWeight.bold,
                     fontSize: 15),
               ),
