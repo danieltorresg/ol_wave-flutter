@@ -9,12 +9,14 @@ import 'package:old_wave_flutter/src/providedrs/Provider_Product.dart';
 class MockClient extends Mock implements http.Client {}
 
 main() {
+  // Test about products
   group('fetchProductosProvider', () {
     final itemToSearch = 'tv';
+
+    // Test product from Nodejs API
     test('returns a jsonproduct if the http call completes successfully',
         () async {
       final client = MockClient();
-      //final itemToSearch = 'tv';
 
       // Use Mockito to return a successful response when it calls the
       // provided http.Client.
@@ -24,6 +26,8 @@ main() {
 
       expect(await fetchProductosProvider(client), isA<Post>());
     });
+
+    //Test product from Django API
     test('returns a jsonproduct if the http call completes successfully',
         () async {
       final client = MockClient();
@@ -36,6 +40,8 @@ main() {
 
       expect(await fetchProductosProvider(client), isA<Post>());
     });
+
+    // Test product from .NET API
     test('returns a jsonproduct if the http call completes successfully',
         () async {
       final client = MockClient();
@@ -44,6 +50,53 @@ main() {
       // provided http.Client.
       when(client.get(
               'http://blackstorenetcore.eba-py2kgy33.us-east-1.elasticbeanstalk.com/api/search?q=$itemToSearch'))
+          .thenAnswer((_) async => http.Response('{"title": "Test"}', 200));
+
+      expect(await fetchProductosProvider(client), isA<Post>());
+    });
+  });
+
+  // Test about product detail
+  group('fetchProductDetailProvider', () {
+    final idProduct = '1';
+
+    // Test product detail from Django API
+    test('returns a jsonproduct if the http call completes successfully',
+        () async {
+      final client = MockClient();
+
+      // Use Mockito to return a successful response when it calls the
+      // provided http.Client.
+      when(client.get(
+              'http://production.eba-2veq4gdy.us-west-2.elasticbeanstalk.com/django_api/item/$idProduct'))
+          .thenAnswer((_) async => http.Response('{"title": "Test"}', 200));
+
+      expect(await fetchProductosProvider(client), isA<Post>());
+    });
+
+    // Test product detail from .NET API
+    test('returns a jsonproduct if the http call completes successfully',
+        () async {
+      final client = MockClient();
+
+      // Use Mockito to return a successful response when it calls the
+      // provided http.Client.
+      when(client.get(
+              'http://blackstorenetcore.eba-py2kgy33.us-east-1.elasticbeanstalk.com/api/item/$idProduct'))
+          .thenAnswer((_) async => http.Response('{"title": "Test"}', 200));
+
+      expect(await fetchProductosProvider(client), isA<Post>());
+    });
+
+    // Test product detail from Nodejs API
+    test('returns a jsonproduct if the http call completes successfully',
+        () async {
+      final client = MockClient();
+
+      // Use Mockito to return a successful response when it calls the
+      // provided http.Client.
+      when(client.get(
+              'https://yurgqjbmwb.execute-api.us-east-2.amazonaws.com/dev/api/item/$idProduct'))
           .thenAnswer((_) async => http.Response('{"title": "Test"}', 200));
 
       expect(await fetchProductosProvider(client), isA<Post>());
