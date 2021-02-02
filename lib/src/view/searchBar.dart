@@ -18,6 +18,7 @@ class _SearchBar extends State<SearchBar> {
           borderRadius: BorderRadius.all(Radius.circular(30)),
         ),
         child: TextField(
+          key: Key("busqueda"),
           onSubmitted: (value) => {
             Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => Search(
