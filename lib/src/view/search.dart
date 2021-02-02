@@ -26,8 +26,10 @@ class _SearchState extends State<Search> {
 
   Widget productsWidget() {
     return FutureBuilder(
-      future: provider.getProduct_net(_controller.text),
+      //future: provider.getProduct_net(_controller.text)
+      future: provider.getProduct_net_default(),
       builder: (context, AsyncSnapshot<List> snapshot) {
+        //return showProducts(products);
         if (snapshot.hasData) {
           final products = snapshot.data;
           if (products.length == 0) {
@@ -70,12 +72,15 @@ class _SearchState extends State<Search> {
     return Padding(
       padding: const EdgeInsets.only(left: 15.0),
       child: Align(
-        alignment: Alignment.centerLeft,
-        child: Image.network(
-          '${data.thumbnail}',
-          fit: BoxFit.fill,
-        ),
-      ),
+          alignment: Alignment.centerLeft,
+          child: SizedBox(
+            height: 100.0,
+            width: 100.0, // fixed width and height
+            child: Image.network(
+              '${data.thumbnail}',
+              fit: BoxFit.fill,
+            ),
+          )),
     );
   }
 
@@ -90,12 +95,11 @@ class _SearchState extends State<Search> {
             texto,
             textAlign: TextAlign.left,
             style: TextStyle(
-                fontWeight: FontWeight.bold, color: Colors.black, fontSize: 10),
+                fontWeight: FontWeight.bold, color: Colors.black, fontSize: 20),
           ),
           Text('${data.brand}',
               textAlign: TextAlign.left,
               style: TextStyle(
-                  fontFamily: 'Monserrat',
                   color: Colors.grey,
                   fontSize: 15,
                   fontWeight: FontWeight.bold)),
@@ -125,17 +129,13 @@ class _SearchState extends State<Search> {
         text: TextSpan(
           text: '${data.price}',
           style: TextStyle(
-              fontFamily: 'Monserrat',
               fontWeight: FontWeight.bold,
               color: purpleMainColor,
               fontSize: 20),
           children: <TextSpan>[
             TextSpan(
                 text: '\n${data.currency}',
-                style: TextStyle(
-                    fontFamily: 'Monserrat',
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold)),
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
           ],
         ),
       ),
@@ -154,7 +154,6 @@ class _SearchState extends State<Search> {
             TextSpan(
                 text: '\n${data.rating}',
                 style: TextStyle(
-                    fontFamily: 'Monserrat',
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: Colors.green)),
